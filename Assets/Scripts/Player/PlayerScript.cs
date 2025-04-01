@@ -2,16 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour, ICanTakeDamage
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private WeaponScript weaponScript;
     private Rigidbody2D playerRigidbody2D;
+
+    [SerializeField] //Для тестов, в будущем этот SerializeField надо убрать, тип машины будет задаваться через интерфейс игрока
+    private MachineScObject machineSc;
+
+    [SerializeField] //Для тестов, в будущем этот SerializeField надо убрать, тип оружия будет задаваться через интерфейс игрока
+    private WeaponScObject weaponSc;
+    
+
+    private float currentHp;
 
     public Rigidbody2D PlayerRigidbody2D { get { return playerRigidbody2D; } }
 
+    public bool TakeDamage(float value)
+    {
+        currentHp -= value;
+        if (currentHp < 0)
+        {
+            Death();
+        }
+        return true;
+    }
+
+    private bool Death()
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void Start()
     {
+        weaponScript.SetScObject(weaponSc);
+        currentHp = machineSc.HitPoints;
+
         playerRigidbody2D = GetComponent<Rigidbody2D>();
     }
 

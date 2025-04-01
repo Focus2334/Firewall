@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d5f8e54c7622a479baa62050a0423c, type: 3}
-  m_Name: New MachineData
+  m_Script: {fileID: 11500000, guid: 9fea0b5640e9ad544a1c5c058ceb9649, type: 3}
+  m_Name: P-120
   m_EditorClassIdentifier: 
-  machineName: zcxc
-  texture: {fileID: 0}
-  HitPoints: 0
-  HitPointsRecoverSpeed: 0
+  weaponName: P-120
+  texture: {fileID: 2800000, guid: 7502a899c25a3a14d9cce8843253c702, type: 3}
+  damage: 10
+  fire_rate: 0.1
+  magSize: 1
+  reloadTime: 1

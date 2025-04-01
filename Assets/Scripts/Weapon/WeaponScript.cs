@@ -7,14 +7,20 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject weaponSprite;
 
-    double feedbackTimer = 0;
+    private double feedbackTimer = 0;
+
+    private WeaponScObject weaponSc;
+
+    public void SetScObject(WeaponScObject newWeaponSc)
+    {
+        weaponSc = newWeaponSc;
+    }
 
     private void Start()
     {
 
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -33,6 +39,7 @@ public class WeaponScript : MonoBehaviour
     {
         feedbackTimer = 0.1;
         weaponSprite.transform.localPosition = new Vector2(0, -0.02f);
-        Instantiate(projectile, transform);
+        var createdProjectile = Instantiate(projectile, transform);
+        createdProjectile.GetComponent<ProjectileScript>().SetScObject(weaponSc.Projectile);
     }
 }

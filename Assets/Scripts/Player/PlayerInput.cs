@@ -11,7 +11,7 @@ public class PlayerInput : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
-    public Vector3 GetMovementInput()
+    public Vector2 GetMovementInput()
     {
         var result = new Vector3();
         float horizontal = Input.GetAxis("Horizontal");
@@ -21,7 +21,7 @@ public class PlayerInput : MonoBehaviour
         return result;
     }
 
-    public Vector3 GetMousePosition()
+    public Vector2 GetMousePosition()
     {
         return mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
