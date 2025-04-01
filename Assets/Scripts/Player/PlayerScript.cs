@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         {
             Death();
         }
+        print(currentHp);
         return true;
     }
 
@@ -37,9 +38,10 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
 
     private void Start()
     {
+        
         weaponScript.SetScObject(weaponSc);
         currentHp = machineSc.HitPoints;
-
+        print(currentHp);
         playerRigidbody2D = GetComponent<Rigidbody2D>();
     }
 

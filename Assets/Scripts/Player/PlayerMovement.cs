@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerScript player;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
+
     private Rigidbody2D playerRigidbody2D;
     private Vector2 currentVelocity = Vector2.zero;
 

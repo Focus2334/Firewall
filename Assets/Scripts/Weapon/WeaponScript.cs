@@ -40,6 +40,9 @@ public class WeaponScript : MonoBehaviour
         feedbackTimer = 0.1;
         weaponSprite.transform.localPosition = new Vector2(0, -0.02f);
         var createdProjectile = Instantiate(projectile, transform);
-        createdProjectile.GetComponent<ProjectileScript>().SetScObject(weaponSc.Projectile);
+        var createdProjectileScript = createdProjectile.GetComponent<ProjectileScript>();
+        createdProjectileScript.SetScObject(weaponSc.Projectile);
+        createdProjectileScript.SetDamage(weaponSc.Damage);
+
     }
 }
