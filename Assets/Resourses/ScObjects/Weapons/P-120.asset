@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponName: P-120
   texture: {fileID: 2800000, guid: 7502a899c25a3a14d9cce8843253c702, type: 3}
   damage: 10
-  fire_rate: 0.1
+  fire_rate: 0.5
   magSize: 1
   reloadTime: 1
+  projectile: {fileID: 11400000, guid: d360d181c9c0c1144830d63284c292fd, type: 2}

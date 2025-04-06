@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DefaultProj
   m_EditorClassIdentifier: 
   projectileName: Default
-  velocity: 100
+  velocity: 1000
   texture: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}

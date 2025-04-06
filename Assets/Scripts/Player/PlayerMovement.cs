@@ -18,7 +18,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer(Vector2 input)
     {
-        playerRigidbody2D.linearVelocity = input * maxSpeed;
+        var velocity = playerRigidbody2D.linearVelocity + input.normalized * acceleration;
+        if (velocity.magnitude < maxSpeed)
+        {
+            playerRigidbody2D.linearVelocity = velocity;
+        }
     }
 
     public void RotatePlayer(Vector3 input)

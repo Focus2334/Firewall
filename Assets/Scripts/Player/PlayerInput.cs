@@ -14,11 +14,36 @@ public class PlayerInput : MonoBehaviour
     public Vector2 GetMovementInput()
     {
         var result = new Vector3();
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        var horizontal = 0;
+        if (Input.GetKey(KeyCode.D))
+        {
+            horizontal = 1;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            horizontal = -1;
+        }
+        var vertical = 0;
+        if (Input.GetKey(KeyCode.W))
+        {
+            vertical = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            vertical = -1;
+        }
         result.x = horizontal;
         result.y = vertical;
         return result;
+    }
+
+    public bool GetFireInput()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            return true;
+        }
+        return false;
     }
 
     public Vector2 GetMousePosition()

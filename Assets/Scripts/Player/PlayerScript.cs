@@ -31,6 +31,12 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         return true;
     }
 
+    public bool Fire()
+    {
+        weaponScript.Fire();
+        return true;
+    }
+
     private bool Death()
     {
         throw new System.NotImplementedException();
@@ -38,7 +44,6 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
 
     private void Start()
     {
-        
         weaponScript.SetScObject(weaponSc);
         currentHp = machineSc.HitPoints;
         print(currentHp);
@@ -49,5 +54,9 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     {
         playerMovement.MovePlayer(playerInput.GetMovementInput());
         playerMovement.RotatePlayer(playerInput.GetMousePosition());
+        if (playerInput.GetFireInput())
+        {
+            weaponScript.Fire();
+        }
     }
 }
