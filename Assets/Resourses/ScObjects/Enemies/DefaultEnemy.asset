@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0ec24b9208ca94fa2852d9f32a5153, type: 3}
+  m_Name: DefaultEnemy
+  m_EditorClassIdentifier: 
+  enemyName: Default
+  machine: {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
+  weapon: {fileID: 11400000, guid: e61aef69ef2b4804aafd08fce956e50e, type: 2}

@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     public bool TakeDamage(float value)
     {
         currentHp -= value;
-        if (currentHp < 0)
+        if (currentHp <= 0)
         {
             Death();
         }
@@ -39,7 +39,8 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
 
     private bool Death()
     {
-        throw new System.NotImplementedException();
+        print("player dead");
+        return true;
     }
 
     private void Start()
