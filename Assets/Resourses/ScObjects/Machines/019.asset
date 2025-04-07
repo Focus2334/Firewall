@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0d5f8e54c7622a479baa62050a0423c, type: 3}
-  m_Name: New MachineData 1
+  m_Name: 019
   m_EditorClassIdentifier: 
-  machineName: 
-  texture: {fileID: 0}
-  HitPoints: 0
-  HitPointsRecoverSpeed: 0
+  machineName: 019
+  texture: {fileID: 2800000, guid: 5d4fecbf6ed08b148bb35e459fbc631d, type: 3}
+  hitPoints: 100
+  hitPointsRecoverSpeed: 1
