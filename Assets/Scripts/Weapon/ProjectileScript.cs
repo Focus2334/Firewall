@@ -11,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     private ProjectileScObject projectileSc;
 
     private float damage = 10;
+    private float currentLifetime = 1f;
 
     public void SetScObject(ProjectileScObject newProjectileSc)
     {
@@ -26,11 +27,16 @@ public class ProjectileScript : MonoBehaviour
     {
         rigidbod = GetComponent<Rigidbody2D>();
         rigidbod.AddForce(transform.up * projectileSc.Velocity);
+        currentLifetime = projectileSc.Lifetime;
     }
 
     private void Update()
     {
-        
+        currentLifetime -= Time.deltaTime;
+        if (currentLifetime < 0)
+        {
+            Destroy(rigidbod);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

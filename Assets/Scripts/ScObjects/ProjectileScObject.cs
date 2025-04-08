@@ -9,8 +9,11 @@ public class ProjectileScObject : ScriptableObject
     private float velocity;
     [SerializeField]
     private Texture2D texture;
+    [SerializeField]
+    private float lifetime;
 
     public string ProjectileName { get { return projectileName; } }
     public float Velocity { get { return velocity; } }
     public Texture2D Texture { get { return texture; } }
+    public float Lifetime { get { return lifetime; } }
 }

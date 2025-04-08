@@ -19,7 +19,7 @@ namespace Enemy
             var position = player.PlayerRigidbody2D.position;
             var direction = (position - enemyRigidbody2D.position).normalized;
             var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            enemyRigidbody2D.rotation = targetAngle;
+            enemyRigidbody2D.SetRotation(targetAngle);
         }
 
         protected internal void MoveEnemy()

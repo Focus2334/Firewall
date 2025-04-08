@@ -18,8 +18,9 @@ namespace Enemy
 
         protected internal void Update()
         {
-            movement.RotateEnemy(); 
-            movement.MoveEnemy();   
+            
+            movement.MoveEnemy();
+            movement.RotateEnemy();
         }
 
         public bool TakeDamage(float value)
