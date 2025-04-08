@@ -33,7 +33,7 @@ public class ProjectileScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         var collidedObject = collision.gameObject.GetComponent<ICanTakeDamage>();
         if (!(collidedObject is null))
@@ -41,5 +41,10 @@ public class ProjectileScript : MonoBehaviour
             collidedObject.TakeDamage(damage);
         }
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }

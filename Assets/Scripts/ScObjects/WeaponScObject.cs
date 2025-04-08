@@ -17,6 +17,8 @@ public class WeaponScObject : ScriptableObject
     private float reloadTime;
     [SerializeField]
     private ProjectileScObject projectile;
+    [SerializeField]
+    private float offset;
 
     public string WeaponName { get { return weaponName; } }
     public Texture2D Texture { get { return texture; } }
@@ -25,4 +27,5 @@ public class WeaponScObject : ScriptableObject
     public float ReloadTime { get { return reloadTime; } }
     public float FireRate { get { return fire_rate; } }
     public ProjectileScObject Projectile { get { return projectile; } }
+    public float Offset { get { return offset; } }
 }

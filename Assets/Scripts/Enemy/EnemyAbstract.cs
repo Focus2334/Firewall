@@ -8,11 +8,11 @@ namespace Enemy
         [SerializeField] private WeaponScript weapon;
         [SerializeField] private EnemyScObject enemySc;
         private float currentHp;
-        public Rigidbody2D GetRigidbody2D { get; private set; }
+        [SerializeField] private Rigidbody2D _rigidbody2D;
+        public Rigidbody2D GetRigidbody2D { get { return _rigidbody2D; } }
 
         protected void Start()
         {
-            GetRigidbody2D = GetComponent<Rigidbody2D>();
             currentHp = enemySc.Machine.HitPoints;
         }
 
@@ -35,6 +35,7 @@ namespace Enemy
         private bool Death()
         {
             print("enemy dead");
+            Destroy(gameObject);
             return true;
         }
         protected abstract void PerformAction();
