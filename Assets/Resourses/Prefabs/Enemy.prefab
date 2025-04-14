@@ -108,6 +108,7 @@ MonoBehaviour:
   movement: {fileID: 1341221837885145797}
   weapon: {fileID: 5314997704117427535}
   enemySc: {fileID: 11400000, guid: 6745bddf26999b64fafcb729e55dfcb8, type: 2}
+  target: {fileID: 0}
   _rigidbody2D: {fileID: 5422560378150535940}
 --- !u!50 &5422560378150535940
 Rigidbody2D:
@@ -135,7 +136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3780717717956254012
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,7 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 2
   acceleration: 1.1
-  player: {fileID: 0}
   enemy: {fileID: 6151679833671101115}
 --- !u!1001 &1948962920624642297
 PrefabInstance:

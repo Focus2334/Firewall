@@ -9,6 +9,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private GameObject fireLight;
     [SerializeField] private ParticleSystem fireParticles;
 
+    private System.Random random = new System.Random();
     private double feedbackTimer = 0;
     private double fireRateTimer = 0;
 
@@ -56,7 +57,11 @@ public class WeaponScript : MonoBehaviour
         var firePosition = transform.position + transform.up * weaponSc.Offset;
         var fireLightPosition = firePosition;
         fireLightPosition.z = -0.5f;
-        var createdProjectile = Instantiate(projectile, firePosition, transform.rotation);
+        var projectileRotation = transform.rotation;
+        var projectileRotationEuler = transform.rotation.eulerAngles;
+        var scatter = Random.Range(-weaponSc.WeaponScatter, weaponSc.WeaponScatter);
+        projectileRotation.eulerAngles = new Vector3(0, 0, projectileRotationEuler.z + scatter);
+        var createdProjectile = Instantiate(projectile, firePosition, projectileRotation);
         var createdFireLight = Instantiate(fireLight, fireLightPosition, transform.rotation);
         var createdProjectileScript = createdProjectile.GetComponent<ProjectileScript>();
         createdProjectileScript.SetScObject(weaponSc.Projectile);
