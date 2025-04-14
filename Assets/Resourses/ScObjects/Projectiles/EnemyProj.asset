@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0ec24b9208ca94fa2852d9f32a5153, type: 3}
-  m_Name: DefaultEnemy
+  m_Script: {fileID: 11500000, guid: 67e963f91a96b4947965be6051d2b419, type: 3}
+  m_Name: EnemyProj
   m_EditorClassIdentifier: 
-  enemyName: Default
-  machine: {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
-  weapon: {fileID: 11400000, guid: f2cabda86b3ea5241b57a1cdb7f099e6, type: 2}
+  projectileName: EnemyP
+  velocity: 1000
+  texture: {fileID: 0}
+  lifetime: 1

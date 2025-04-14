@@ -20,6 +20,7 @@ namespace Enemy
         protected void Start()
         {
             currentHp = enemySc.Machine.HitPoints;
+            weapon.SetScObject(enemySc.Weapon);
         }
 
         protected internal void Update()
@@ -27,6 +28,7 @@ namespace Enemy
             
             movement.MoveEnemy();
             movement.RotateEnemy();
+            weapon.Fire();
         }
 
         public bool TakeDamage(float value)
@@ -36,12 +38,10 @@ namespace Enemy
             {
                 Death();
             }
-            print(currentHp);
             return true;
         }
         private bool Death()
         {
-            print("enemy dead");
             Destroy(gameObject);
             return true;
         }

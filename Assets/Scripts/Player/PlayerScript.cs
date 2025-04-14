@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private WeaponScript weaponScript;
     [SerializeField] private WeaponbarScript weaponBar;
+    [SerializeField] private HPbarScript HPBar;
     private Rigidbody2D playerRigidbody2D;
 
     [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
@@ -25,6 +26,8 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     public bool TakeDamage(float value)
     {
         currentHp -= value;
+        HPBar.SetBarProgress(currentHp / machineSc.HitPoints);
+        HPBar.SetText(currentHp.ToString());
         if (currentHp <= 0)
         {
             Death();
@@ -38,14 +41,14 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         var current = weaponScript.Fire();
         if (current > 0)
         {
-            UpdateWeaponBar(current.ToString());
+            UpdateWeaponBar(current.ToString(), Color.white);
         }
         return true;
     }
 
-    public void UpdateWeaponBar(string value)
+    public void UpdateWeaponBar(string value, Color color)
     {
-        weaponBar.UpdateNumber(value);
+        weaponBar.UpdateNumber(value, color);
     }
 
     private bool Death()
@@ -58,7 +61,7 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     {
         weaponScript.SetScObject(weaponSc);
         weaponBar.UpdateName(weaponSc.WeaponName);
-        UpdateWeaponBar(weaponSc.MagSize.ToString());
+        UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
         currentHp = machineSc.HitPoints;
         print(currentHp);
         playerRigidbody2D = GetComponent<Rigidbody2D>();
@@ -74,10 +77,10 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         }
         if (weaponScript.Reloading)
         {
-            UpdateWeaponBar((math.round(weaponScript.ReloadTimer * 10) / 10).ToString());
+            UpdateWeaponBar((math.round(weaponScript.ReloadTimer * 10) / 10).ToString(), new Color(0.63f, 0.15f, 0.05f, 1));
             if (weaponScript.ReloadTimer - Time.deltaTime <= 0)
             {
-                UpdateWeaponBar(weaponSc.MagSize.ToString());
+                UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
             }
         }
     }

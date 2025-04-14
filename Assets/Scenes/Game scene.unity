@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: 6bda1dccac56d9a49ad7ce582a4d1ffb, type: 2}
+  - {fileID: 11400000, guid: 6bda1dccac56d9a49ad7ce582a4d1ffb, type: 2}
   positions:
   - {x: -0.7, y: -4.76, z: -1}
   - {x: 4.13, y: -0.07, z: -1}
@@ -417,6 +418,7 @@ MonoBehaviour:
   - {x: 0.36, y: 5.09, z: -1}
   enemyPrefab: {fileID: 8076520012835889184, guid: 09c704a6021bc6b4db3442b5ad47a3c1, type: 3}
   player: {fileID: 839053246}
+  waveDelayTime: 2
 --- !u!4 &236504500
 Transform:
   m_ObjectHideFlags: 0

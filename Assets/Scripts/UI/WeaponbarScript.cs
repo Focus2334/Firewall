@@ -12,8 +12,9 @@ public class WeaponbarScript : MonoBehaviour
         weaponName.SetText(name);
     }
 
-    public void UpdateNumber(string name)
+    public void UpdateNumber(string name, Color color)
     {
         projCount.SetText(name);
+        projCount.color = color;
     }
 }
