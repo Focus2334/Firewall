@@ -32,7 +32,6 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         {
             Death();
         }
-        print(currentHp);
         return true;
     }
 
@@ -53,7 +52,6 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
 
     private bool Death()
     {
-        print("player dead");
         return true;
     }
 
