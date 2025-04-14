@@ -1,63 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour, ICanTakeDamage
+namespace Player
 {
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerInput playerInput;
-    [SerializeField] private WeaponScript weaponScript;
-    private Rigidbody2D playerRigidbody2D;
-
-    [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
-    private MachineScObject machineSc;
-
-    [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
-    private WeaponScObject weaponSc;
-    
-
-    private float currentHp;
-
-    public Rigidbody2D PlayerRigidbody2D { get { return playerRigidbody2D; } }
-
-    public bool TakeDamage(float value)
+    public class PlayerScript : MonoBehaviour, ICanTakeDamage
     {
-        currentHp -= value;
-        if (currentHp <= 0)
+        [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerInput playerInput;
+        [SerializeField] private WeaponScript weaponScript;
+        [SerializeField] private MachineScObject machineSc;
+        [SerializeField] private WeaponScObject weaponSc;
+
+        public Rigidbody2D PlayerRigidbody2D { get; private set; }
+        private float currentHp;
+
+        public bool TakeDamage(float value)
         {
-            Death();
+            currentHp -= value;
+            if (currentHp <= 0)
+            {
+                Death();
+            }
+
+            print(currentHp);
+            return true;
         }
-        print(currentHp);
-        return true;
-    }
 
-    public bool Fire()
-    {
-        weaponScript.Fire();
-        return true;
-    }
-
-    private bool Death()
-    {
-        print("player dead");
-        return true;
-    }
-
-    private void Start()
-    {
-        weaponScript.SetScObject(weaponSc);
-        currentHp = machineSc.HitPoints;
-        print(currentHp);
-        playerRigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        playerMovement.MovePlayer(playerInput.GetMovementInput());
-        playerMovement.RotatePlayer(playerInput.GetMousePosition());
-        if (playerInput.GetFireInput())
+        public bool Fire()
         {
             weaponScript.Fire();
+            return true;
+        }
+
+        private bool Death()
+        {
+            print("player dead");
+            return true;
+        }
+
+        private void Start()
+        {
+            weaponScript.SetScObject(weaponSc);
+            currentHp = machineSc.HitPoints;
+            print(currentHp);
+            PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            playerMovement.MovePlayer(playerInput.GetMovementInput());
+            playerMovement.RotatePlayer(playerInput.GetMousePosition());
+            if (playerInput.GetFireInput())
+            {
+                weaponScript.Fire();
+            }
         }
     }
 }
