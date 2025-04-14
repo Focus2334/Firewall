@@ -47,9 +47,9 @@ public class WeaponScript : MonoBehaviour
 
     public bool Fire()
     {
-        if (fireRateTimer > 0) {
+        if (fireRateTimer > 0)
             return false;
-        }
+        
         fireParticles.Play();
         feedbackTimer = 0.05;
         weaponSprite.transform.localPosition = new Vector2(0, -0.02f);
