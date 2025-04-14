@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour, ICanTakeDamage
@@ -7,6 +8,7 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private WeaponScript weaponScript;
+    [SerializeField] private WeaponbarScript weaponBar;
     private Rigidbody2D playerRigidbody2D;
 
     [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
@@ -33,8 +35,17 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
 
     public bool Fire()
     {
-        weaponScript.Fire();
+        var current = weaponScript.Fire();
+        if (current > 0)
+        {
+            UpdateWeaponBar(current.ToString());
+        }
         return true;
+    }
+
+    public void UpdateWeaponBar(string value)
+    {
+        weaponBar.UpdateNumber(value);
     }
 
     private bool Death()
@@ -46,6 +57,8 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
     private void Start()
     {
         weaponScript.SetScObject(weaponSc);
+        weaponBar.UpdateName(weaponSc.WeaponName);
+        UpdateWeaponBar(weaponSc.MagSize.ToString());
         currentHp = machineSc.HitPoints;
         print(currentHp);
         playerRigidbody2D = GetComponent<Rigidbody2D>();
@@ -57,7 +70,15 @@ public class PlayerScript : MonoBehaviour, ICanTakeDamage
         playerMovement.RotatePlayer(playerInput.GetMousePosition());
         if (playerInput.GetFireInput())
         {
-            weaponScript.Fire();
+            Fire();
+        }
+        if (weaponScript.Reloading)
+        {
+            UpdateWeaponBar((math.round(weaponScript.ReloadTimer * 10) / 10).ToString());
+            if (weaponScript.ReloadTimer - Time.deltaTime <= 0)
+            {
+                UpdateWeaponBar(weaponSc.MagSize.ToString());
+            }
         }
     }
 }
