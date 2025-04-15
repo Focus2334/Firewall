@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileScript : MonoBehaviour
+public class ProjectileScript : MonoBehaviour, IProjectile
 {
     private Rigidbody2D rigidbod;
     private BoxCollider2D boxCollider;
@@ -42,6 +42,11 @@ public class ProjectileScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var collidedObject = collision.gameObject.GetComponent<ICanTakeDamage>();
+        var anotherProjectileObject = collision.gameObject.GetComponent<IProjectile>();
+        if (!(anotherProjectileObject is null))
+        {
+            return;
+        }
         if (!(collidedObject is null))
         {
             collidedObject.TakeDamage(damage);

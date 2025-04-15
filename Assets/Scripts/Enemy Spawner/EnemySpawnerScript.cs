@@ -8,7 +8,7 @@ public class EnemySpawnerScript : MonoBehaviour
     [SerializeField] private List<EnemyWaveScript> waves;
     [SerializeField] private List<Vector3> positions;
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private PlayerScript player;
+    [SerializeField] private Player.PlayerScript player;
     [SerializeField] private double waveDelayTime;
 
     private int currentEnemiesCount = 0;

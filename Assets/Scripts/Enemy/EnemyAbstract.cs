@@ -12,15 +12,13 @@ namespace Enemy
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
         
-        private float currentHp;
-        
         public Rigidbody2D EnemyRigidbody2D => enemyRigidbody2D;
         
         public NavMeshAgent Agent => agent;
-        [SerializeField] private PlayerScript target;
+        [SerializeField] private Player.PlayerScript target;
         private float currentHp;
         public Rigidbody2D GetRigidbody2D { get { return enemyRigidbody2D; } }
-        public PlayerScript Target { get { return target; } set { target = value; } }
+        public Player.PlayerScript Target { get { return target; } set { target = value; } }
         public void SetScObject(EnemyScObject newEnemySc)
         {
             enemySc = newEnemySc;
