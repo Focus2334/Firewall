@@ -17,11 +17,19 @@ namespace Enemy
         public Rigidbody2D EnemyRigidbody2D => enemyRigidbody2D;
         
         public NavMeshAgent Agent => agent;
-        
+        [SerializeField] private PlayerScript target;
+        private float currentHp;
+        public Rigidbody2D GetRigidbody2D { get { return enemyRigidbody2D; } }
+        public PlayerScript Target { get { return target; } set { target = value; } }
+        public void SetScObject(EnemyScObject newEnemySc)
+        {
+            enemySc = newEnemySc;
+        }
+
         protected void Start()
         {
             currentHp = enemySc.Machine.HitPoints;
-            weapon.SetScObject(weaponScObject);
+            weapon.SetScObject(enemySc.Weapon);
         }
 
         protected internal void Update()
@@ -34,15 +42,14 @@ namespace Enemy
         public bool TakeDamage(float value)
         {
             currentHp -= value;
-            if (currentHp <= 0) 
+            if (currentHp <= 0) {
                 Death();
-            print(currentHp);
+            }
             return true;
         }
         
         private bool Death()
         {
-            print("enemy dead");
             Destroy(gameObject);
             return true;
         }

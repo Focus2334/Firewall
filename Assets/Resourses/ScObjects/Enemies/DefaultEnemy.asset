@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Default
   machine: {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
-  weapon: {fileID: 11400000, guid: e61aef69ef2b4804aafd08fce956e50e, type: 2}
+  weapon: {fileID: 11400000, guid: f2cabda86b3ea5241b57a1cdb7f099e6, type: 2}

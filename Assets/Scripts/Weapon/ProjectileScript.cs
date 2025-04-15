@@ -35,7 +35,7 @@ public class ProjectileScript : MonoBehaviour
         currentLifetime -= Time.deltaTime;
         if (currentLifetime < 0)
         {
-            Destroy(rigidbod);
+            Destroy(gameObject);
         }
     }
 
