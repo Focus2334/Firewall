@@ -20,4 +20,4 @@ MonoBehaviour:
   magSize: 10
   reloadTime: 1
   projectile: {fileID: 11400000, guid: d360d181c9c0c1144830d63284c292fd, type: 2}
-  offset: 1.5
+  offset: 1.55
