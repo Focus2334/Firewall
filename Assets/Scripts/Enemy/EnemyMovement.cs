@@ -66,8 +66,8 @@ namespace Enemy
 
         protected internal void MoveUpdate()
         {
-            if (DistanceToTarget() > 20)
-                return;
+            if (DistanceToTarget() > 5)
+                NavMeshMoveEnemy();
             else
                 Strafe();
             
