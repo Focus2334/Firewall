@@ -8,6 +8,8 @@ public class WeaponScObject : ScriptableObject
     [SerializeField]
     private Texture2D texture;
     [SerializeField]
+    private float weaponScatter;
+    [SerializeField]
     private float damage;
     [SerializeField]
     private float fire_rate;
@@ -28,4 +30,6 @@ public class WeaponScObject : ScriptableObject
     public float FireRate { get { return fire_rate; } }
     public ProjectileScObject Projectile { get { return projectile; } }
     public float Offset { get { return offset; } }
+
+    public float WeaponScatter { get { return weaponScatter; } }
 }
