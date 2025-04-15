@@ -1,19 +1,21 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New ProjectileData", menuName = "Projectile Data", order = 54)]
-public class ProjectileScObject : ScriptableObject
+namespace ScObjects
 {
-    [SerializeField]
-    private string projectileName;
-    [SerializeField]
-    private float velocity;
-    [SerializeField]
-    private Texture2D texture;
-    [SerializeField]
-    private float lifetime;
+    [CreateAssetMenu(fileName = "New ProjectileData", menuName = "Projectile Data", order = 54)]
+    public class ProjectileScObject : ScriptableObject
+    {
+        [SerializeField] private string projectileName;
+        [SerializeField] private float velocity;
+        [SerializeField] private Texture2D texture;
+        [SerializeField] private float lifetime;
 
-    public string ProjectileName { get { return projectileName; } }
-    public float Velocity { get { return velocity; } }
-    public Texture2D Texture { get { return texture; } }
-    public float Lifetime { get { return lifetime; } }
+        public string ProjectileName => projectileName;
+
+        public float Velocity => velocity;
+
+        public Texture2D Texture => texture;
+
+        public float Lifetime => lifetime;
+    }
 }

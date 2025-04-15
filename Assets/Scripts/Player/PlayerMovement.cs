@@ -9,20 +9,14 @@ namespace Player
         [SerializeField] private float acceleration;
 
         private Rigidbody2D playerRigidbody2D;
-        private Vector2 currentVelocity = Vector2.zero;
 
-        private void Start()
-        {
-            playerRigidbody2D = player.PlayerRigidbody2D;
-        }
+        private void Start() => playerRigidbody2D = player.PlayerRigidbody2D;
 
         public void MovePlayer(Vector2 input)
         {
             var velocity = playerRigidbody2D.linearVelocity + input.normalized * acceleration;
             if (velocity.magnitude < maxSpeed)
-            {
                 playerRigidbody2D.linearVelocity = velocity;
-            }
         }
 
         public void RotatePlayer(Vector3 input)

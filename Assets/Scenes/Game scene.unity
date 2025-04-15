@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5112827569234786404, guid: f129ed892bae63947839a302c116ee9d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6183235279424993180, guid: f129ed892bae63947839a302c116ee9d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14046,7 +14046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839053245}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.68472, w: 0.7288063}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14056,7 +14056,7 @@ Transform:
   - {fileID: 1280211789}
   - {fileID: 559182464788726819}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!50 &839053249
 Rigidbody2D:
   serializedVersion: 5
@@ -14082,7 +14082,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &839053250
 CapsuleCollider2D:

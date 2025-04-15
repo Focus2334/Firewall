@@ -2,18 +2,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPbarScript : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
-
-    public void SetBarProgress(float progress)
+    public class HPbarScript : MonoBehaviour
     {
-        image.fillAmount = progress;
-    }
+        [SerializeField] private Image image;
+        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
-    public void SetText(string text)
-    {
-        textMeshProUGUI.text = text;
+        public void SetBarProgress(float progress) => image.fillAmount = progress;
+
+        public void SetText(string text) => textMeshProUGUI.text = text;
     }
 }

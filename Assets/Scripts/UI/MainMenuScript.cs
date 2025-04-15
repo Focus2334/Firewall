@@ -1,17 +1,18 @@
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class MainMenuScript : MonoBehaviour
+namespace UI
 {
-    public void Play()
+    public class MainMenuScript : MonoBehaviour
     {
-        SceneManager.LoadScene("Game scene");
-    }
+        public void Play()
+        {
+            SceneManager.LoadScene("Game scene");
+        }
 
-    public void Exit()
-    {
-        Application.Quit();
+        public void Exit()
+        {
+            Application.Quit();
+        }
     }
 }

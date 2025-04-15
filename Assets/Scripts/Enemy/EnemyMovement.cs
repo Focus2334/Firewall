@@ -9,9 +9,8 @@ namespace Enemy
         [SerializeField] private EnemyScript enemy;
 
         private NavMeshAgent agent;
-        private float acceleration;
         private PlayerScript player;
-
+        private float acceleration;
         private float strafeTimer = 3;
         private bool strafeRightDirection = true;
 
@@ -46,18 +45,24 @@ namespace Enemy
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerPosition = player.PlayerRigidbody2D.position;
             var directionToPlayer = (playerPosition - enemyPosition).normalized;
-            var moveDirection = new Vector2(-directionToPlayer.y, directionToPlayer.x);
-            if (strafeRightDirection)
-                moveDirection = new Vector2(directionToPlayer.y, -directionToPlayer.x);
+            var moveDirection = strafeRightDirection ? 
+                new Vector2(directionToPlayer.y, -directionToPlayer.x) :
+                new Vector2(-directionToPlayer.y, directionToPlayer.x);
             var velocity = moveDirection * acceleration;
+            
+            UpdateStrafe();
+            
+            enemy.EnemyRigidbody2D.linearVelocity = velocity;
+        }
+
+        private void UpdateStrafe()
+        {
             strafeTimer -= Time.deltaTime;
             if (strafeTimer <= 0)
             {
                 strafeRightDirection = !strafeRightDirection;
                 strafeTimer = 3;
             }
-
-            enemy.EnemyRigidbody2D.linearVelocity = velocity;
         }
 
         public bool IsOnFire() => DistanceToTarget() <= 15;

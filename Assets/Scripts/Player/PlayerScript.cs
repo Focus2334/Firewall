@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ScObjects;
+using UI;
+using Weapon;
 
 namespace Player
 {
@@ -13,18 +14,13 @@ namespace Player
         [SerializeField] private WeaponScript weaponScript;
         [SerializeField] private WeaponbarScript weaponBar;
         [SerializeField] private HPbarScript HPBar;
-        private Rigidbody2D playerRigidbody2D;
+        [SerializeField] private MachineScObject machineSc; 
+        //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
+        [SerializeField] private WeaponScObject weaponSc;
+        //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
 
-        [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
-        private MachineScObject machineSc;
-
-        [SerializeField] //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
-        private WeaponScObject weaponSc;
-
-
+        public Rigidbody2D PlayerRigidbody2D { get; private set; }
         private float currentHp;
-
-        public Rigidbody2D PlayerRigidbody2D { get { return playerRigidbody2D; } }
 
         public bool TakeDamage(float value)
         {
@@ -34,36 +30,28 @@ namespace Player
             if (currentHp <= 0)
             {
                 currentHp -= value;
-                if (currentHp <= 0)
-                {
+                if (currentHp <= 0) 
                     Death();
-                }
 
                 print(currentHp);
                 return true;
             }
+            
             return true;
         }
 
-        public bool Fire()
+        private bool Fire()
         {
             var current = weaponScript.Fire();
-            if (current > 0)
-            {
+            if (current > 0) 
                 UpdateWeaponBar(current.ToString(), Color.white);
-            }
+            
             return true;
         }
 
-        public void UpdateWeaponBar(string value, Color color)
-        {
-            weaponBar.UpdateNumber(value, color);
-        }
+        private void UpdateWeaponBar(string value, Color color) => weaponBar.UpdateNumber(value, color);
 
-        private void Death()
-        {
-            SceneManager.LoadScene("Main menu");
-        }
+        private void Death() => SceneManager.LoadScene("Main menu");
 
         private void Start()
         {
@@ -71,24 +59,23 @@ namespace Player
             weaponBar.UpdateName(weaponSc.WeaponName);
             UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
             currentHp = machineSc.HitPoints;
-            playerRigidbody2D = GetComponent<Rigidbody2D>();
+            PlayerRigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
             playerMovement.MovePlayer(playerInput.GetMovementInput());
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
-            if (playerInput.GetFireInput())
-            {
+            if (playerInput.GetFireInput()) 
                 Fire();
-            }
+            
             if (weaponScript.Reloading)
             {
-                UpdateWeaponBar((math.round(weaponScript.ReloadTimer * 10) / 10).ToString(), new Color(0.63f, 0.15f, 0.05f, 1));
-                if (weaponScript.ReloadTimer - Time.deltaTime <= 0)
-                {
+                UpdateWeaponBar((math.round(weaponScript.ReloadTimer * 10) / 10).ToString(), 
+                    new Color(0.63f, 0.15f, 0.05f, 1));
+                
+                if (weaponScript.ReloadTimer - Time.deltaTime <= 0) 
                     UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
-                }
             }
         }
     }

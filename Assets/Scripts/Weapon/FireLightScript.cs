@@ -1,18 +1,22 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class FireLightScript : MonoBehaviour
+namespace Weapon
 {
-    private float lifetime = 0.05f;
-    [SerializeField] private Light2D lights;
-    private void Update()
+    public class FireLightScript : MonoBehaviour
     {
-        lifetime -= Time.deltaTime;
-        lights.pointLightOuterRadius *= 1.02f;
-        if (lifetime < 0)
-        {
-            Destroy(gameObject);
-        }
+        private float lifetime = 0.05f;
+        [SerializeField] private Light2D lights;
 
+        private void Update()
+        {
+            lifetime -= Time.deltaTime;
+            lights.pointLightOuterRadius *= 1.02f;
+            if (lifetime < 0)
+            {
+                Destroy(gameObject);
+            }
+
+        }
     }
 }

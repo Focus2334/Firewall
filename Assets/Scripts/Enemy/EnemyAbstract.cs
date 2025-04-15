@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.AI;
+using Weapon;
+using ScObjects;
 
 namespace Enemy
 {
@@ -11,18 +14,16 @@ namespace Enemy
         [SerializeField] private EnemyScObject enemySc;
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private PlayerScript target;
+        private float currentHp;
         
         public Rigidbody2D EnemyRigidbody2D => enemyRigidbody2D;
         
         public NavMeshAgent Agent => agent;
-        [SerializeField] private Player.PlayerScript target;
-        private float currentHp;
-        public Rigidbody2D GetRigidbody2D { get { return enemyRigidbody2D; } }
-        public Player.PlayerScript Target { get { return target; } set { target = value; } }
-        public void SetScObject(EnemyScObject newEnemySc)
-        {
-            enemySc = newEnemySc;
-        }
+        
+        public PlayerScript Target { get => target; set => target = value; }
+        
+        public void SetScObject(EnemyScObject newEnemySc) => enemySc = newEnemySc;
 
         protected void Start()
         {
@@ -40,9 +41,8 @@ namespace Enemy
         public bool TakeDamage(float value)
         {
             currentHp -= value;
-            if (currentHp <= 0) {
+            if (currentHp <= 0) 
                 Death();
-            }
             return true;
         }
         

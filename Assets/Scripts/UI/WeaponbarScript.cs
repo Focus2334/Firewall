@@ -1,20 +1,19 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-public class WeaponbarScript : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TextMeshProUGUI projCount;
-    [SerializeField] private TextMeshProUGUI weaponName;
-
-    public void UpdateName(string name)
+    public class WeaponbarScript : MonoBehaviour
     {
-        weaponName.SetText(name);
-    }
+        [SerializeField] private TextMeshProUGUI projCount;
+        [SerializeField] private TextMeshProUGUI weaponName;
 
-    public void UpdateNumber(string name, Color color)
-    {
-        projCount.SetText(name);
-        projCount.color = color;
+        public void UpdateName(string name) => weaponName.SetText(name);
+
+        public void UpdateNumber(string name, Color color)
+        {
+            projCount.SetText(name);
+            projCount.color = color;
+        }
     }
 }
