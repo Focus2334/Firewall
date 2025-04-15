@@ -14,7 +14,7 @@ namespace Player
 
         public void MovePlayer(Vector2 input)
         {
-            var velocity = playerRigidbody2D.linearVelocity + input.normalized * acceleration;
+            var velocity = playerRigidbody2D.linearVelocity + input.normalized * acceleration * Time.deltaTime;
             if (velocity.magnitude < maxSpeed)
                 playerRigidbody2D.linearVelocity = velocity;
         }
