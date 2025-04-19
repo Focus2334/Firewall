@@ -64,10 +64,13 @@ namespace Weapon
             }
         }
 
-        public void SlartReloadWeapon()
+        public void StartReloadWeapon()
         {
-            Reloading = true;
-            reloadTimer = weaponSc.ReloadTime;
+            if (!Reloading && currentProjectilesCount != weaponSc.MagSize)
+            {
+                Reloading = true;
+                reloadTimer = weaponSc.ReloadTime;
+            }
         }
 
         public int Fire()
@@ -96,7 +99,7 @@ namespace Weapon
             currentProjectilesCount--;
             if (currentProjectilesCount == 0)
             {
-                SlartReloadWeapon();
+                StartReloadWeapon();
             }
 
             return currentProjectilesCount;

@@ -14,13 +14,18 @@ namespace Player
         [SerializeField] private WeaponScript weaponScript;
         [SerializeField] private WeaponbarScript weaponBar;
         [SerializeField] private HPbarScript HPBar;
+        [SerializeField] private EnergyBarScript energyBar;
         [SerializeField] private MachineScObject machineSc; 
         //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
         [SerializeField] private WeaponScObject weaponSc;
         //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
 
         public Rigidbody2D PlayerRigidbody2D { get; private set; }
+        public MachineScObject MachineScObject => machineSc;
         private float currentHp;
+        private float currentStamina;
+
+        private float dashTimer;
 
         public bool TakeDamage(float value)
         {
@@ -38,6 +43,20 @@ namespace Player
             }
             
             return true;
+        }
+
+        public void AddStamina(float value)
+        {
+            currentStamina += value;
+            energyBar.SetBarProgress(currentStamina / machineSc.MaxStamina);
+            energyBar.SetText(math.round(currentStamina).ToString());
+        }
+
+        public void SetStamina(float value)
+        {
+            currentStamina = value;
+            energyBar.SetBarProgress(currentStamina / machineSc.MaxStamina);
+            energyBar.SetText(math.round(currentStamina).ToString());
         }
 
         private bool Fire()
@@ -59,6 +78,7 @@ namespace Player
             weaponBar.UpdateName(weaponSc.WeaponName);
             UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
             currentHp = machineSc.HitPoints;
+            currentStamina = machineSc.MaxStamina;
             PlayerRigidbody2D = GetComponent<Rigidbody2D>();
         }
 
@@ -68,6 +88,26 @@ namespace Player
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
             if (playerInput.GetFireInput()) 
                 Fire();
+
+            if (playerInput.GetDashInput() && currentStamina >= machineSc.DashStaminaNeed)
+            {
+                playerMovement.Dash();
+                dashTimer = machineSc.DashTime;
+            }
+
+            if (playerInput.GetReloadInput())
+            {
+                weaponScript.StartReloadWeapon();
+            }
+            
+            if (dashTimer > 0)
+            {
+                dashTimer -= Time.deltaTime;
+                if (dashTimer <= 0)
+                {
+                    playerMovement.FinishDash();
+                }
+            }
             
             if (weaponScript.Reloading)
             {
@@ -76,6 +116,13 @@ namespace Player
                 
                 if (weaponScript.ReloadTimer - Time.deltaTime <= 0) 
                     UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
+            }
+
+            if (currentStamina < machineSc.MaxStamina)
+            {
+                AddStamina(machineSc.StaminaRecoverSpeed * Time.deltaTime);
+                if (currentStamina >= machineSc.MaxStamina)
+                    SetStamina(machineSc.MaxStamina);
             }
         }
     }

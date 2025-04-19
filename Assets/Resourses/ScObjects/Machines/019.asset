@@ -16,3 +16,11 @@ MonoBehaviour:
   texture: {fileID: 2800000, guid: 5d4fecbf6ed08b148bb35e459fbc631d, type: 3}
   hitPoints: 100
   hitPointsRecoverSpeed: 1
+  maxStamina: 100
+  staminaRecoverSpeed: 30
+  dashStaminaNeed: 40
+  maxSpeed: 10
+  acceleration: 100
+  maxDashSpeed: 20
+  dashAccel: 150
+  dashTime: 0.2

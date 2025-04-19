@@ -33,6 +33,8 @@ namespace Player
         }
 
         public bool GetFireInput() => Input.GetKey(KeyCode.Mouse0);
+        public bool GetDashInput() => Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Space);
+        public bool GetReloadInput() => Input.GetKeyDown(KeyCode.R);
 
         public Vector2 GetMousePosition() => mainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
