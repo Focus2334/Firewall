@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.AI;
 using Player;
 
@@ -49,7 +50,7 @@ namespace Enemy
             var moveDirection = strafeRightDirection ? 
                 new Vector2(directionToPlayer.y, -directionToPlayer.x) :
                 new Vector2(-directionToPlayer.y, directionToPlayer.x);
-            var velocity = moveDirection * acceleration;
+            var velocity = moveDirection * acceleration / 2;
             
             UpdateStrafe();
             
@@ -70,10 +71,12 @@ namespace Enemy
         {
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerPosition = player.PlayerRigidbody2D.position;
+            var playerCollider = player.GetComponent<CapsuleCollider2D>();
             var direction = (playerPosition - enemyPosition).normalized;
-            var raycast = Physics2D.Raycast(enemyPosition, direction, raycastDistance);
+            var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
             
-            return raycast.collider != null;
+            return raycast.Any(ray => ray.collider == playerCollider) && 
+                   DistanceToTarget() <= raycastDistance;
         }
 
         private void NavMeshMoveEnemy() => agent.SetDestination(player.transform.position);
