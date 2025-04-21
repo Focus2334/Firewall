@@ -7,6 +7,7 @@ namespace Enemy
     public class EnemyMovement : MonoBehaviour
     {
         [SerializeField] private EnemyScript enemy;
+        [SerializeField] private float raycastDistance = 15;
 
         private NavMeshAgent agent;
         private PlayerScript player;
@@ -65,7 +66,15 @@ namespace Enemy
             }
         }
 
-        public bool IsOnFire() => DistanceToTarget() <= 15;
+        public bool IsOnFire()
+        {
+            var enemyPosition = enemy.EnemyRigidbody2D.position;
+            var playerPosition = player.PlayerRigidbody2D.position;
+            var direction = (playerPosition - enemyPosition).normalized;
+            var raycast = Physics2D.Raycast(enemyPosition, direction, raycastDistance);
+            
+            return raycast.collider != null;
+        }
 
         private void NavMeshMoveEnemy() => agent.SetDestination(player.transform.position);
 
