@@ -33,8 +33,9 @@ namespace Enemy
 
         protected internal void Update()
         {
+            movement.CheckIsOnFire();
             movement.MoveUpdate();
-            if (movement.IsOnFire())
+            if (movement.IsOnfire)
                 weapon.Fire();
         }
 

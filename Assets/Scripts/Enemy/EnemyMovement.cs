@@ -14,7 +14,11 @@ namespace Enemy
         private PlayerScript player;
         private float acceleration;
         private float strafeTimer = 3;
+        private float onFireTimer = 0.1f;
         private bool strafeRightDirection = true;
+        private bool isOnfire = false;
+
+        public bool IsOnfire { get { return isOnfire; } }
 
         private void Start()
         {
@@ -67,23 +71,33 @@ namespace Enemy
             }
         }
 
-        public bool IsOnFire()
+        public void CheckIsOnFire()
         {
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerPosition = player.PlayerRigidbody2D.position;
-            var playerCollider = player.GetComponent<CapsuleCollider2D>();
             var direction = (playerPosition - enemyPosition).normalized;
             var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
-            
-            return raycast.Any(ray => ray.collider == playerCollider) && 
-                   DistanceToTarget() <= raycastDistance;
+
+            raycast = raycast.Where(ray => ray.collider.tag != "Enemy").ToArray();
+            print(raycast.FirstOrDefault().collider.tag);
+            if (raycast.FirstOrDefault().collider.tag == "Player")
+            {
+                onFireTimer = 0.1f;
+                isOnfire = true;
+            }
+            else
+            {
+                onFireTimer -= Time.deltaTime;
+                if (onFireTimer <= 0)
+                    isOnfire = false;
+            }
         }
 
         private void NavMeshMoveEnemy() => agent.SetDestination(player.transform.position);
 
         protected internal void MoveUpdate()
         {
-            if (DistanceToTarget() > 5)
+            if (!isOnfire)
                 NavMeshMoveEnemy();
             else
                 Strafe();
