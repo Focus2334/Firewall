@@ -52,9 +52,9 @@ namespace Enemy
             var playerPosition = player.PlayerRigidbody2D.position;
             var directionToPlayer = (playerPosition - enemyPosition).normalized;
             var moveDirection = strafeRightDirection ? 
-                new Vector2(directionToPlayer.y, -directionToPlayer.x) :
-                new Vector2(-directionToPlayer.y, directionToPlayer.x);
-            var velocity = moveDirection * acceleration / 2;
+                transform.right :
+                -transform.right;
+            var velocity = moveDirection * 8;
             
             UpdateStrafe();
             
@@ -79,7 +79,6 @@ namespace Enemy
             var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
 
             raycast = raycast.Where(ray => ray.collider.tag != "Enemy").ToArray();
-            print(raycast.FirstOrDefault().collider.tag);
             if (raycast.FirstOrDefault().collider.tag == "Player")
             {
                 onFireTimer = 0.1f;
