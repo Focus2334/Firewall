@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Default
   machine: {fileID: 11400000, guid: 407b941ce7760b24b842f69c5d222bb7, type: 2}
   weapon: {fileID: 11400000, guid: 2c30f88e4dacdac47bcf97e104b71b1a, type: 2}
-  strafeSpeed: 10
+  strafeSpeed: 11
   strafeTime: 1
   moveBackDistance: 3
   moveForwardDistance: 8

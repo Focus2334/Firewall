@@ -83,7 +83,7 @@ namespace Enemy
             var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
 
             raycast = raycast.Where(ray => ray.collider.tag != "Enemy").ToArray();
-            if (raycast.FirstOrDefault().collider.tag == "Player")
+            if (!(raycast.Count() == 0) && raycast.FirstOrDefault().collider.tag == "Player")
             {
                 onFireTimer = 0.1f;
                 isOnfire = true;
