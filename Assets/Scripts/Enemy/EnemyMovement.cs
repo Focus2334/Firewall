@@ -13,7 +13,7 @@ namespace Enemy
         private NavMeshAgent agent;
         private PlayerScript player;
         private float acceleration;
-        private float strafeTimer = 3;
+        private float strafeTimer;
         private float onFireTimer = 0.1f;
         private bool strafeRightDirection = true;
         private bool isOnfire = false;
@@ -26,6 +26,8 @@ namespace Enemy
             agent.updateUpAxis = false;
             acceleration = agent.acceleration;
             player = enemy.Target;
+            strafeTimer = enemy.EnemySc.StrafeTime;
+            agent.speed = enemy.EnemySc.Machine.MaxSpeed;
         }
 
         private void RotateEnemy()
@@ -54,8 +56,8 @@ namespace Enemy
             var moveDirection = strafeRightDirection ? 
                 transform.right :
                 -transform.right;
-            var velocity = moveDirection * 8;
-            
+            var velocity = moveDirection * enemy.EnemySc.StrafeSpeed;
+            agent.isStopped = true;
             UpdateStrafe();
             
             enemy.EnemyRigidbody2D.linearVelocity = velocity;
@@ -67,7 +69,7 @@ namespace Enemy
             if (strafeTimer <= 0)
             {
                 strafeRightDirection = !strafeRightDirection;
-                strafeTimer = 3;
+                strafeTimer = enemy.EnemySc.StrafeTime;
             }
         }
 
@@ -92,16 +94,32 @@ namespace Enemy
             }
         }
 
+        public void MoveBack()
+        {
+            var enemyPosition = enemy.EnemyRigidbody2D.position;
+            var playerPosition = player.PlayerRigidbody2D.position;
+            var directionToPlayer = (playerPosition - enemyPosition).normalized;
+            var velocity = -directionToPlayer * enemy.EnemySc.StrafeSpeed;
+            agent.isStopped = true;
+            enemy.EnemyRigidbody2D.linearVelocity = velocity;
+        }
+
         private void NavMeshMoveEnemy() => agent.SetDestination(player.transform.position);
 
         protected internal void MoveUpdate()
         {
-            if (!isOnfire)
+            RotateEnemy();
+            if (!isOnfire || DistanceToTarget() > enemy.EnemySc.MoveForwardDistance)
+            {
+                agent.isStopped = false;
                 NavMeshMoveEnemy();
+            }
+            else if (isOnfire && DistanceToTarget() < enemy.EnemySc.MoveBackDistance)
+            {
+                MoveBack();
+            }
             else
                 Strafe();
-            
-            RotateEnemy();
         }
     }
 }

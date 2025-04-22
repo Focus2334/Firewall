@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b9db677c31bbde84c81ce2d9f20a3359
+guid: fd59a83d2c6441842ba4667f5a416173
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1611334255619658027
-    second: energybar_0
+      213: -7624520064915638997
+    second: murder_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: energybar_0
+      name: murder_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 30
+        x: 59
+        y: 45
+        width: 78
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5de2f5f180463a9e0800000000000000
-      internalID: -1611334255619658027
+      spriteID: b257ddbb563403690800000000000000
+      internalID: -7624520064915638997
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      energybar_0: -1611334255619658027
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

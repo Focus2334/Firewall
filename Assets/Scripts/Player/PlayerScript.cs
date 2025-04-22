@@ -37,8 +37,6 @@ namespace Player
                 currentHp -= value;
                 if (currentHp <= 0) 
                     Death();
-
-                print(currentHp);
                 return true;
             }
             

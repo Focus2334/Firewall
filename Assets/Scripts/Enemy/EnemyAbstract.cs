@@ -25,6 +25,8 @@ namespace Enemy
         
         public void SetScObject(EnemyScObject newEnemySc) => enemySc = newEnemySc;
 
+        public EnemyScObject EnemySc => enemySc;
+
         protected void Start()
         {
             currentHp = enemySc.Machine.HitPoints;
