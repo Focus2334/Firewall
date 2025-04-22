@@ -24,10 +24,12 @@ namespace Enemy
         {
             agent = enemy.Agent;
             agent.updateUpAxis = false;
-            acceleration = agent.acceleration;
+            
             player = enemy.Target;
             strafeTimer = enemy.EnemySc.StrafeTime;
             agent.speed = enemy.EnemySc.Machine.MaxSpeed;
+            agent.acceleration = enemy.EnemySc.Machine.Acceleration * 100;
+            acceleration = agent.acceleration;
         }
 
         private void RotateEnemy()
@@ -115,9 +117,7 @@ namespace Enemy
                 NavMeshMoveEnemy();
             }
             else if (isOnfire && DistanceToTarget() < enemy.EnemySc.MoveBackDistance)
-            {
                 MoveBack();
-            }
             else
                 Strafe();
         }
