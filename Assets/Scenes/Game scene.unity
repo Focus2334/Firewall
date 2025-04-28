@@ -14153,7 +14153,7 @@ MonoBehaviour:
   playerInput: {fileID: 13915275}
   weaponScript: {fileID: 1280211791}
   weaponBar: {fileID: 994846646}
-  HPBar: {fileID: 983421964}
+  hpBar: {fileID: 983421964}
   energyBar: {fileID: 1768796127}
   machineSc: {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
   weaponSc: {fileID: 11400000, guid: e61aef69ef2b4804aafd08fce956e50e, type: 2}

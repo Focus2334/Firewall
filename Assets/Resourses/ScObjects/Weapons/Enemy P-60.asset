@@ -16,8 +16,8 @@ MonoBehaviour:
   texture: {fileID: 0}
   weaponScatter: 5
   damage: 3
-  fire_rate: 0.05
-  magSize: 6
+  fireRate: 0.05
+  magSize: 3
   reloadTime: 1
   projectile: {fileID: 11400000, guid: 82160f9aad526174286997d6554e21ef, type: 2}
   offset: 1.5

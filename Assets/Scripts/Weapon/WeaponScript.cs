@@ -9,6 +9,7 @@ namespace Weapon
         [SerializeField] private GameObject weaponSprite;
         [SerializeField] private GameObject fireLight;
         [SerializeField] private ParticleSystem fireParticles;
+        [SerializeField] private AudioSource fireSound;
 
         private double feedbackTimer;
         private double fireRateTimer;
@@ -74,6 +75,7 @@ namespace Weapon
                 return currentProjectilesCount;
 
             fireParticles.Play();
+            fireSound.Play();
             feedbackTimer = 0.05;
             weaponSprite.transform.localPosition = new Vector2(0, -0.02f);
             var firePosition = transform.position + transform.up * weaponSc.Offset;

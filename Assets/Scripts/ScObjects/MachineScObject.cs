@@ -6,7 +6,6 @@ namespace ScObjects
     public class MachineScObject : ScriptableObject
     {
         [SerializeField] private string machineName;
-        [SerializeField] private Texture2D texture;
         [SerializeField] private Sprite sprite;
         [SerializeField] private float hitPoints;
         [SerializeField] private float hitPointsRecoverSpeed;
@@ -21,8 +20,6 @@ namespace ScObjects
         public string MachineName => machineName;
         
         public Sprite Sprite => sprite;
-
-        public Texture2D Texture => texture;
 
         public float HitPoints => hitPoints;
 
