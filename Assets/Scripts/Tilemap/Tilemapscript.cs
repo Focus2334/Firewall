@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Tilemapscript : MonoBehaviour
+namespace Tilemap
 {
+    public class TilemapScript : MonoBehaviour
+    {
     
+    }
 }

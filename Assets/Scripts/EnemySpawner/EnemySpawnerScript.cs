@@ -13,7 +13,6 @@ namespace EnemySpawner
         [SerializeField] private PlayerScript player;
         [SerializeField] private double waveDelayTime;
 
-        private int currentEnemiesCount;
         private int currentWave;
         private double waveTimer;
 
@@ -43,7 +42,6 @@ namespace EnemySpawner
                 var enemyScript = enemyInstance.GetComponent<EnemyScript>();
                 enemyScript.SetScObject(enemyScObject);
                 enemyScript.Target = player;
-                currentEnemiesCount++;
                 positionCounter++;
                 if (positionCounter >= positions.Count)
                     positionCounter = 0;

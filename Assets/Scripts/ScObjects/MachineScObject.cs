@@ -7,6 +7,7 @@ namespace ScObjects
     {
         [SerializeField] private string machineName;
         [SerializeField] private Texture2D texture;
+        [SerializeField] private Sprite sprite;
         [SerializeField] private float hitPoints;
         [SerializeField] private float hitPointsRecoverSpeed;
         [SerializeField] private float maxStamina;
@@ -18,6 +19,8 @@ namespace ScObjects
         [SerializeField] private float dashAccel;
         [SerializeField] private float dashTime;
         public string MachineName => machineName;
+        
+        public Sprite Sprite => sprite;
 
         public Texture2D Texture => texture;
 

@@ -15,6 +15,7 @@ namespace Enemy
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerScript target;
+        
         private float currentHp;
         
         public Rigidbody2D EnemyRigidbody2D => enemyRigidbody2D;
@@ -31,13 +32,14 @@ namespace Enemy
         {
             currentHp = enemySc.Machine.HitPoints;
             weapon.SetScObject(enemySc.Weapon);
+            gameObject.GetComponent<SpriteRenderer>().sprite = enemySc.Machine.Sprite;
         }
 
         protected internal void Update()
         {
             movement.CheckIsOnFire();
             movement.MoveUpdate();
-            if (movement.IsOnfire)
+            if (movement.IsOnFire)
                 weapon.Fire();
         }
 

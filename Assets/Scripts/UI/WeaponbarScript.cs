@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace UI
 {
-    public class WeaponbarScript : MonoBehaviour
+    public class WeaponBarScript : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI projCount;
         [SerializeField] private TextMeshProUGUI weaponName;
 
-        public void UpdateName(string name) => weaponName.SetText(name);
+        public void UpdateName(string newWeaponName) => weaponName.SetText(newWeaponName);
 
-        public void UpdateNumber(string name, Color color)
+        public void UpdateNumber(string newProjectileName, Color color)
         {
-            projCount.SetText(name);
+            projCount.SetText(newProjectileName);
             projCount.color = color;
         }
     }

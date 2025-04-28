@@ -12,32 +12,31 @@ namespace Player
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private WeaponScript weaponScript;
-        [SerializeField] private WeaponbarScript weaponBar;
-        [SerializeField] private HPbarScript HPBar;
+        [SerializeField] private WeaponBarScript weaponBar;
+        [SerializeField] private HpBarScript hpBar;
         [SerializeField] private EnergyBarScript energyBar;
         [SerializeField] private MachineScObject machineSc; 
-        //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
         [SerializeField] private WeaponScObject weaponSc;
-        //��� ������, � ������� ���� SerializeField ���� ������, ��� ������ ����� ���������� ����� ��������� ������
-
-        public Rigidbody2D PlayerRigidbody2D { get; private set; }
-        public MachineScObject MachineScObject => machineSc;
+        
         private float currentHp;
         private float currentStamina;
+
+        public Rigidbody2D PlayerRigidbody2D { get; private set; }
+        
+        public MachineScObject MachineScObject => machineSc;
 
         private float dashTimer;
 
         public bool TakeDamage(float value)
         {
             currentHp -= value;
-            HPBar.SetBarProgress(currentHp / machineSc.HitPoints);
-            HPBar.SetText(currentHp.ToString());
+            hpBar.SetBarProgress(currentHp / machineSc.HitPoints);
+            hpBar.SetText(currentHp.ToString());
             if (currentHp <= 0)
             {
                 currentHp -= value;
                 if (currentHp <= 0) 
                     Death();
-                return true;
             }
             
             return true;
@@ -50,7 +49,7 @@ namespace Player
             energyBar.SetText(math.round(currentStamina).ToString());
         }
 
-        public void SetStamina(float value)
+        private void SetStamina(float value)
         {
             currentStamina = value;
             energyBar.SetBarProgress(currentStamina / machineSc.MaxStamina);
@@ -60,6 +59,7 @@ namespace Player
         private bool Fire()
         {
             var current = weaponScript.Fire();
+            
             if (current > 0) 
                 UpdateWeaponBar(current.ToString(), Color.white);
             
@@ -78,12 +78,14 @@ namespace Player
             currentHp = machineSc.HitPoints;
             currentStamina = machineSc.MaxStamina;
             PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+            gameObject.GetComponent<SpriteRenderer>().sprite = machineSc.Sprite;
         }
 
         private void Update()
         {
             playerMovement.MovePlayer(playerInput.GetMovementInput());
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
+            
             if (playerInput.GetFireInput()) 
                 Fire();
 
@@ -93,18 +95,14 @@ namespace Player
                 dashTimer = machineSc.DashTime;
             }
 
-            if (playerInput.GetReloadInput())
-            {
+            if (playerInput.GetReloadInput()) 
                 weaponScript.StartReloadWeapon();
-            }
             
             if (dashTimer > 0)
             {
                 dashTimer -= Time.deltaTime;
-                if (dashTimer <= 0)
-                {
+                if (dashTimer <= 0) 
                     playerMovement.FinishDash();
-                }
             }
             
             if (weaponScript.Reloading)

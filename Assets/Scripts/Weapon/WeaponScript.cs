@@ -10,20 +10,15 @@ namespace Weapon
         [SerializeField] private GameObject fireLight;
         [SerializeField] private ParticleSystem fireParticles;
 
-        private System.Random random = new System.Random();
-        private double feedbackTimer = 0;
-        private double fireRateTimer = 0;
-        private double reloadTimer = 0;
+        private double feedbackTimer;
+        private double fireRateTimer;
 
-        private int currentProjectilesCount = 0;
+        private int currentProjectilesCount;
         private WeaponScObject weaponSc;
 
         public bool Reloading { get; private set; }
 
-        public double ReloadTimer
-        {
-            get { return reloadTimer; }
-        }
+        public double ReloadTimer { get; private set; }
 
         public void SetScObject(WeaponScObject newWeaponSc)
         {
@@ -53,10 +48,10 @@ namespace Weapon
                 fireRateTimer -= Time.deltaTime;
             }
 
-            if (reloadTimer > 0)
+            if (ReloadTimer > 0)
             {
-                reloadTimer -= Time.deltaTime;
-                if (reloadTimer <= 0)
+                ReloadTimer -= Time.deltaTime;
+                if (ReloadTimer <= 0)
                 {
                     Reloading = false;
                     currentProjectilesCount = weaponSc.MagSize;
@@ -69,16 +64,14 @@ namespace Weapon
             if (!Reloading && currentProjectilesCount != weaponSc.MagSize)
             {
                 Reloading = true;
-                reloadTimer = weaponSc.ReloadTime;
+                ReloadTimer = weaponSc.ReloadTime;
             }
         }
 
         public int Fire()
         {
             if (fireRateTimer > 0 || currentProjectilesCount <= 0)
-            {
                 return currentProjectilesCount;
-            }
 
             fireParticles.Play();
             feedbackTimer = 0.05;
@@ -91,16 +84,14 @@ namespace Weapon
             var scatter = Random.Range(-weaponSc.WeaponScatter, weaponSc.WeaponScatter);
             projectileRotation.eulerAngles = new Vector3(0, 0, projectileRotationEuler.z + scatter);
             var createdProjectile = Instantiate(projectile, firePosition, projectileRotation);
-            var createdFireLight = Instantiate(fireLight, fireLightPosition, transform.rotation);
+            Instantiate(fireLight, fireLightPosition, transform.rotation);
             var createdProjectileScript = createdProjectile.GetComponent<ProjectileScript>();
             createdProjectileScript.SetScObject(weaponSc.Projectile);
             createdProjectileScript.SetDamage(weaponSc.Damage);
             fireRateTimer = weaponSc.FireRate;
             currentProjectilesCount--;
-            if (currentProjectilesCount == 0)
-            {
+            if (currentProjectilesCount == 0) 
                 StartReloadWeapon();
-            }
 
             return currentProjectilesCount;
         }

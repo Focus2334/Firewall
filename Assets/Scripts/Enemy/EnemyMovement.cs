@@ -12,13 +12,11 @@ namespace Enemy
 
         private NavMeshAgent agent;
         private PlayerScript player;
-        private float acceleration;
         private float strafeTimer;
         private float onFireTimer = 0.1f;
         private bool strafeRightDirection = true;
-        private bool isOnfire = false;
-
-        public bool IsOnfire { get { return isOnfire; } }
+        
+        public bool IsOnFire { get; private set; }
 
         private void Start()
         {
@@ -29,7 +27,6 @@ namespace Enemy
             strafeTimer = enemy.EnemySc.StrafeTime;
             agent.speed = enemy.EnemySc.Machine.MaxSpeed;
             agent.acceleration = enemy.EnemySc.Machine.Acceleration * 100;
-            acceleration = agent.acceleration;
         }
 
         private void RotateEnemy()
@@ -52,12 +49,7 @@ namespace Enemy
 
         private void Strafe()
         {
-            var enemyPosition = enemy.EnemyRigidbody2D.position;
-            var playerPosition = player.PlayerRigidbody2D.position;
-            var directionToPlayer = (playerPosition - enemyPosition).normalized;
-            var moveDirection = strafeRightDirection ? 
-                transform.right :
-                -transform.right;
+            var moveDirection = strafeRightDirection ? transform.right : -transform.right;
             var velocity = moveDirection * enemy.EnemySc.StrafeSpeed;
             agent.isStopped = true;
             UpdateStrafe();
@@ -82,21 +74,21 @@ namespace Enemy
             var direction = (playerPosition - enemyPosition).normalized;
             var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
 
-            raycast = raycast.Where(ray => ray.collider.tag != "Enemy").ToArray();
-            if (!(raycast.Count() == 0) && raycast.FirstOrDefault().collider.tag == "Player")
+            raycast = raycast.Where(ray => !ray.collider.CompareTag("Enemy")).ToArray();
+            if (raycast.Length != 0 && raycast.FirstOrDefault().collider.CompareTag("Player"))
             {
                 onFireTimer = 0.1f;
-                isOnfire = true;
+                IsOnFire = true;
             }
             else
             {
                 onFireTimer -= Time.deltaTime;
                 if (onFireTimer <= 0)
-                    isOnfire = false;
+                    IsOnFire = false;
             }
         }
 
-        public void MoveBack()
+        private void MoveBack()
         {
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerPosition = player.PlayerRigidbody2D.position;
@@ -111,12 +103,12 @@ namespace Enemy
         protected internal void MoveUpdate()
         {
             RotateEnemy();
-            if (!isOnfire || DistanceToTarget() > enemy.EnemySc.MoveForwardDistance)
+            if (!IsOnFire || DistanceToTarget() > enemy.EnemySc.MoveForwardDistance)
             {
                 agent.isStopped = false;
                 NavMeshMoveEnemy();
             }
-            else if (isOnfire && DistanceToTarget() < enemy.EnemySc.MoveBackDistance)
+            else if (IsOnFire && DistanceToTarget() < enemy.EnemySc.MoveBackDistance)
                 MoveBack();
             else
                 Strafe();

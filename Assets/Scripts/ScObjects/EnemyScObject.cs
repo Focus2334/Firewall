@@ -14,11 +14,17 @@ namespace ScObjects
         [SerializeField] private float moveForwardDistance;
 
         public string EnemyName => enemyName;
+        
         public MachineScObject Machine => machine;
+        
         public WeaponScObject Weapon => weapon;
+        
         public float StrafeSpeed => strafeSpeed;
+        
         public float StrafeTime => strafeTime;
+        
         public float MoveBackDistance => moveBackDistance;
+        
         public float MoveForwardDistance => moveForwardDistance;
     }
 }

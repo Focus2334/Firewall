@@ -9,7 +9,7 @@ namespace ScObjects
         [SerializeField] private Texture2D texture;
         [SerializeField] private float weaponScatter;
         [SerializeField] private float damage;
-        [SerializeField] private float fire_rate;
+        [SerializeField] private float fireRate;
         [SerializeField] private int magSize;
         [SerializeField] private float reloadTime;
         [SerializeField] private ProjectileScObject projectile;
@@ -25,7 +25,7 @@ namespace ScObjects
 
         public float ReloadTime => reloadTime;
 
-        public float FireRate => fire_rate;
+        public float FireRate => fireRate;
 
         public ProjectileScObject Projectile => projectile;
 

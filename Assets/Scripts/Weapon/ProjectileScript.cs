@@ -5,7 +5,7 @@ namespace Weapon
 {
     public class ProjectileScript : MonoBehaviour, IProjectile
     {
-        private Rigidbody2D rigidbod;
+        private Rigidbody2D projectileRigidbody;
         private BoxCollider2D boxCollider;
 
         [SerializeField] private ProjectileScObject projectileSc;
@@ -25,8 +25,8 @@ namespace Weapon
 
         private void Start()
         {
-            rigidbod = GetComponent<Rigidbody2D>();
-            rigidbod.AddForce(transform.up * projectileSc.Velocity);
+            projectileRigidbody = GetComponent<Rigidbody2D>();
+            projectileRigidbody.AddForce(transform.up * projectileSc.Velocity);
             currentLifetime = projectileSc.Lifetime;
         }
 
