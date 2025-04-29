@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d5f8e54c7622a479baa62050a0423c, type: 3}
   m_Name: fire
   m_EditorClassIdentifier: 
-  machineName: fire
+  machineName: 018
   sprite: {fileID: -7624520064915638997, guid: fd59a83d2c6441842ba4667f5a416173, type: 3}
   hitPoints: 60
   hitPointsRecoverSpeed: 1

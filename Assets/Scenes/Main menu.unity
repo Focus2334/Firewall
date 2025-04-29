@@ -403,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &128099934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +503,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipCanvasScript: {fileID: 1999449062}
+  playerMachines:
+  - {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
+  - {fileID: 11400000, guid: 407b941ce7760b24b842f69c5d222bb7, type: 2}
 --- !u!1 &131129457
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041A\u0423\u041F\u0418\u0422\u042C"
+  m_text: "\u0418\u0421\u041F\u041E\u041B\u042C\u0417\u041E\u0412\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
   m_sharedMaterial: {fileID: 2012066619227712633, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
@@ -1185,7 +1188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 116}
+  m_AnchoredPosition: {x: 1669, y: 986}
   m_SizeDelta: {x: 381, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494677249
@@ -2043,7 +2046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 733, y: 116}
+  m_AnchoredPosition: {x: 253, y: 90}
   m_SizeDelta: {x: 381, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1302701038
@@ -2539,7 +2542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 019
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
   m_sharedMaterial: {fileID: 2012066619227712633, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
@@ -2708,19 +2711,22 @@ MonoBehaviour:
   m_Value: 0
   m_MultiSelect: 0
   m_Options:
-    m_Options:
-    - m_Text: 019
-      m_Image: {fileID: 2530564911472380330, guid: 25821ae186ccdaa4987a14baf87019ea, type: 3}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: 018
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: 050
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999449062}
+        m_TargetAssemblyTypeName: ShipCanvasScript, Assembly-CSharp
+        m_MethodName: ChangeSelectedMachine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1701389624
 MonoBehaviour:
@@ -3282,7 +3288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1999449062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3295,8 +3301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2d5a2197c6f4845a7e4f4eab975f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machine: {fileID: 11400000, guid: 407b941ce7760b24b842f69c5d222bb7, type: 2}
+  selectedMachine: {fileID: 11400000, guid: 407b941ce7760b24b842f69c5d222bb7, type: 2}
   mainMenu: {fileID: 128099938}
+  dropdown: {fileID: 1701389623}
+  dropdownText: {fileID: 1585927134}
+  buyText: {fileID: 158819221}
 --- !u!114 &1999449063
 MonoBehaviour:
   m_ObjectHideFlags: 0
