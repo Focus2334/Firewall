@@ -12,6 +12,9 @@ public class ShipCanvasScript : MonoBehaviour
     [SerializeField] private TMP_Text dropdownText;
     [SerializeField] private TMP_Text buyText;
     [SerializeField] private TMP_Text babloText;
+    [SerializeField] private GameObject bablo;
+
+    private int babloAcces = 0;
 
     public void Buy()
     {
@@ -38,6 +41,8 @@ public class ShipCanvasScript : MonoBehaviour
 
     public void Exit()
     {
+        babloAcces = 0;
+        bablo.SetActive(false);
         mainMenu.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -60,9 +65,22 @@ public class ShipCanvasScript : MonoBehaviour
         selectedMachine = CurrentValues.AllAvaibleMachines[0];
         dropdownText.text = selectedMachine.MachineName;
         babloText.text = CurrentValues.Points.ToString();
+        
         foreach (var item in CurrentValues.AllAvaibleMachines)
         {
             dropdown.options.Add(new TMP_Dropdown.OptionData(item.MachineName));
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            babloAcces++;
+            if (babloAcces > 10)
+            {
+                bablo.SetActive(true);
+            }
         }
     }
 }

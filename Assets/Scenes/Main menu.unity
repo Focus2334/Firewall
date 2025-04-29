@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0411\u0410\u0411\u041B\u041E"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
   m_sharedMaterial: {fileID: 2012066619227712633, guid: eb758135c1017e0488b11387ec6a29ca, type: 2}
@@ -1170,7 +1170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &494677248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1188,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60.5, y: -46}
-  m_SizeDelta: {x: 381, y: 96}
+  m_AnchoredPosition: {x: -379, y: -601}
+  m_SizeDelta: {x: 381, y: 381}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &494677249
 MonoBehaviour:
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2530564911472380330, guid: 25821ae186ccdaa4987a14baf87019ea, type: 3}
+  m_Sprite: {fileID: 4524403157298716526, guid: 8991055639d0d754dbaa37a197c286cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2520,7 +2520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -60, y: -150}
+  m_AnchoredPosition: {x: -46, y: -35}
   m_SizeDelta: {x: 381, y: 96}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1435111282
@@ -3383,6 +3383,7 @@ MonoBehaviour:
   dropdownText: {fileID: 1585927134}
   buyText: {fileID: 158819221}
   babloText: {fileID: 2043793337}
+  bablo: {fileID: 494677247}
 --- !u!114 &1999449063
 MonoBehaviour:
   m_ObjectHideFlags: 0
