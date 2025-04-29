@@ -1,8 +1,10 @@
+using ScObjects;
 using UnityEngine;
 
 public static class CurrentValues
 {
     public static int Points { get; private set; }
+    public static MachineScObject CurrentPlayerMachine { get; private set; }
 
     public static void AddPoints(int value)
     {
@@ -17,5 +19,10 @@ public static class CurrentValues
             return true;
         }
         return false;
+    }
+
+    public static void SetCurrentPlayerMachine(MachineScObject newMachine)
+    {
+        CurrentPlayerMachine = newMachine;
     }
 }

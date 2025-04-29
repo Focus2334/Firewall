@@ -15,9 +15,11 @@ namespace Player
         [SerializeField] private WeaponBarScript weaponBar;
         [SerializeField] private HpBarScript hpBar;
         [SerializeField] private EnergyBarScript energyBar;
-        [SerializeField] private MachineScObject machineSc; 
+         
         [SerializeField] private WeaponScObject weaponSc;
-        
+
+        [SerializeField] private MachineScObject machineSc;
+
         private float currentHp;
         private float currentStamina;
 
@@ -72,6 +74,8 @@ namespace Player
 
         private void Start()
         {
+            if (CurrentValues.CurrentPlayerMachine is not null)
+                machineSc = CurrentValues.CurrentPlayerMachine;
             weaponScript.SetScObject(weaponSc);
             weaponBar.UpdateName(weaponSc.WeaponName);
             UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
