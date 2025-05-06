@@ -15,7 +15,7 @@ MonoBehaviour:
   machineName: 019
   sprite: {fileID: 21300000, guid: 5d4fecbf6ed08b148bb35e459fbc631d, type: 3}
   hitPoints: 100
-  hitPointsRecoverSpeed: 1
+  hitPointsRecoverSpeed: 10
   maxStamina: 100
   staminaRecoverSpeed: 30
   dashStaminaNeed: 40

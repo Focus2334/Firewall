@@ -11,10 +11,5 @@ namespace ScObjects
         public List<MachineScObject> AllAvailableMachines;
         public List<WeaponScObject> AllAvailableWeapons;
         public List<WeaponScObject> OpenedWeapons;
-
-        public override string ToString()
-        {
-            return $"{PlayerMoney} {CurrentPlayerMachine} {string.Join('/', AllAvailableMachines)}";
-        }
     }
 }

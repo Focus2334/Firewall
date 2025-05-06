@@ -15,6 +15,7 @@ namespace Enemy
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerScript target;
+        [SerializeField] private GameObject points;
         
         private float currentHp;
         
@@ -53,6 +54,7 @@ namespace Enemy
         
         private bool Death()
         {
+            Instantiate(points, transform.position, transform.rotation);
             Destroy(gameObject);
             return true;
         }

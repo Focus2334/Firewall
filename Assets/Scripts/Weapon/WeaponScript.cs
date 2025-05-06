@@ -9,7 +9,7 @@ namespace Weapon
         [SerializeField] private GameObject weaponSprite;
         [SerializeField] private GameObject fireLight;
         [SerializeField] private ParticleSystem fireParticles;
-        [SerializeField] private AudioSource fireSound;
+        [SerializeField] private GameObject fireSound;
 
         private double feedbackTimer;
         private double fireRateTimer;
@@ -75,7 +75,6 @@ namespace Weapon
                 return currentProjectilesCount;
 
             fireParticles.Play();
-            fireSound.Play();
             feedbackTimer = 0.05;
             weaponSprite.transform.localPosition = new Vector2(0, -0.02f);
             var firePosition = transform.position + transform.up * weaponSc.Offset;
@@ -87,6 +86,7 @@ namespace Weapon
             projectileRotation.eulerAngles = new Vector3(0, 0, projectileRotationEuler.z + scatter);
             var createdProjectile = Instantiate(projectile, firePosition, projectileRotation);
             Instantiate(fireLight, fireLightPosition, transform.rotation);
+            Instantiate(fireSound, fireLightPosition, transform.rotation);
             var createdProjectileScript = createdProjectile.GetComponent<ProjectileScript>();
             createdProjectileScript.SetScObject(weaponSc.Projectile);
             createdProjectileScript.SetDamage(weaponSc.Damage);

@@ -9,6 +9,7 @@ namespace UI
     {
         [SerializeField] private ShipCanvasScript shipCanvasScript;
         [SerializeField] private List<MachineScObject> playerMachines;
+        [SerializeField] private List<WeaponScObject> playerWeapons;
 
         public void Play() => SceneManager.LoadScene("Game scene");
 
@@ -19,7 +20,10 @@ namespace UI
                 AllAvailableMachines = CurrentValues.AllAvailableMachines,
                 CurrentPlayerMachine = CurrentValues.CurrentPlayerMachine,
                 OpenedMachines = CurrentValues.OpenedMachines,
-                PlayerMoney = CurrentValues.Points
+                PlayerMoney = CurrentValues.Points,
+                AllAvailableWeapons = CurrentValues.AllAvailableWeapons,
+                CurrentPlayerWeapon = CurrentValues.CurrentPlayerWeapon,
+                OpenedWeapons = CurrentValues.OpenedWeapons,
             };
             SaveScObject.SavePreservation(saveData);
             Application.Quit();
@@ -43,9 +47,9 @@ namespace UI
                         AllAvailableMachines = playerMachines,
                         CurrentPlayerMachine = playerMachines[0],
                         OpenedMachines = new List<MachineScObject> { playerMachines[0] },
-                        /*OpenedWeapons = ,
-                        AllAvailableWeapons = ,
-                        CurrentPlayerWeapon = */
+                        OpenedWeapons = new List<WeaponScObject> { playerWeapons[0] },
+                        AllAvailableWeapons = playerWeapons,
+                        CurrentPlayerWeapon = playerWeapons[0]
                     });
         }
     }

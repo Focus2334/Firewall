@@ -113,6 +113,7 @@ MonoBehaviour:
   enemyRigidbody2D: {fileID: 5422560378150535940}
   agent: {fileID: 2737852248448342050}
   target: {fileID: 0}
+  points: {fileID: 4212827229855067478, guid: 6a72aae8b86cffe4080f0613e0447b95, type: 3}
 --- !u!50 &5422560378150535940
 Rigidbody2D:
   serializedVersion: 5
