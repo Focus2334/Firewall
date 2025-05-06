@@ -49,24 +49,24 @@ public class ShipCanvasScript : MonoBehaviour
 
     public void ChangeSelectedMachine()
     {
-        selectedMachine = CurrentValues.AllAvaibleMachines[dropdown.value];
+        selectedMachine = CurrentValues.AllAvailableMachines[dropdown.value];
         if (CurrentValues.OpenedMachines.Contains(selectedMachine))
         {
-            buyText.text = "ÈÑÏÎËÜÇÎÂÀÒÜ";
+            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
         }
         else
         {
-            buyText.text = "ÊÓÏÈÒÜ";
+            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
         }
     }
 
     private void Start()
     {
-        selectedMachine = CurrentValues.AllAvaibleMachines[0];
+        selectedMachine = CurrentValues.AllAvailableMachines[0];
         dropdownText.text = selectedMachine.MachineName;
         babloText.text = CurrentValues.Points.ToString();
         
-        foreach (var item in CurrentValues.AllAvaibleMachines)
+        foreach (var item in CurrentValues.AllAvailableMachines)
         {
             dropdown.options.Add(new TMP_Dropdown.OptionData(item.MachineName));
         }

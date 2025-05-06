@@ -15,9 +15,7 @@ namespace Player
         [SerializeField] private WeaponBarScript weaponBar;
         [SerializeField] private HpBarScript hpBar;
         [SerializeField] private EnergyBarScript energyBar;
-         
         [SerializeField] private WeaponScObject weaponSc;
-
         [SerializeField] private MachineScObject machineSc;
 
         private float currentHp;
