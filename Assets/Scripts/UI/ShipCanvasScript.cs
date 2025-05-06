@@ -50,14 +50,12 @@ public class ShipCanvasScript : MonoBehaviour
             babloText.text = CurrentValues.Points.ToString();
             weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";
         }
-        print(CurrentValues.CurrentPlayerWeapon);
     }
 
     public void BABLO()
     {
         CurrentValues.AddPoints(100);
         babloText.text = CurrentValues.Points.ToString();
-        print(CurrentValues.Points);
     }
 
     public void Exit()
@@ -89,8 +87,6 @@ public class ShipCanvasScript : MonoBehaviour
     public void ChangeSelectedWeapon()
     {
         selectedWeapon = CurrentValues.AllAvaibleWeapons[weaponDropdown.value];
-        print(selectedWeapon.WeaponName);
-        print(CurrentValues.CurrentPlayerWeapon.WeaponName);
         if (selectedWeapon.WeaponName == CurrentValues.CurrentPlayerWeapon.WeaponName)
         {
             weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";

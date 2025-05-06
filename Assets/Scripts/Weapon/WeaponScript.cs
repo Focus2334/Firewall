@@ -29,7 +29,7 @@ namespace Weapon
 
         private void Start()
         {
-
+            weaponSprite.GetComponent<SpriteRenderer>().sprite = weaponSc.Texture;
         }
 
         private void Update()

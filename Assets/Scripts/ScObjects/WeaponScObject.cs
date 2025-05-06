@@ -6,7 +6,7 @@ namespace ScObjects
     public class WeaponScObject : ScriptableObject
     {
         [SerializeField] private string weaponName;
-        [SerializeField] private Texture2D texture;
+        [SerializeField] private Sprite texture;
         [SerializeField] private float weaponScatter;
         [SerializeField] private float damage;
         [SerializeField] private float fireRate;
@@ -17,7 +17,7 @@ namespace ScObjects
 
         public string WeaponName => weaponName;
 
-        public Texture2D Texture => texture;
+        public Sprite Texture => texture;
 
         public float Damage => damage;
 

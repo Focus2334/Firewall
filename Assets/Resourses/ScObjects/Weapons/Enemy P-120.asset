@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy P-120
   m_EditorClassIdentifier: 
   weaponName: "\u0412 \u041F-120"
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 7502a899c25a3a14d9cce8843253c702, type: 3}
   weaponScatter: 5
   damage: 10
   fireRate: 0.07

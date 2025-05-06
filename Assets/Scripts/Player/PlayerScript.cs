@@ -104,12 +104,6 @@ namespace Player
             playerMovement.MovePlayer(playerInput.GetMovementInput());
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 0.0f;
-                pauseCanvas.SetActive(true);
-            }
-
             RegenerateHP(machineSc.HitPointsRecoverSpeed * Time.deltaTime);
             
             if (playerInput.GetFireInput()) 
@@ -145,6 +139,12 @@ namespace Player
                 AddStamina(machineSc.StaminaRecoverSpeed * Time.deltaTime);
                 if (currentStamina >= machineSc.MaxStamina)
                     SetStamina(machineSc.MaxStamina);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0.0f;
+                pauseCanvas.SetActive(true);
             }
         }
     }
