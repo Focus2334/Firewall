@@ -15,6 +15,7 @@ namespace Player
         [SerializeField] private WeaponBarScript weaponBar;
         [SerializeField] private HpBarScript hpBar;
         [SerializeField] private EnergyBarScript energyBar;
+        [SerializeField] private GameObject pauseCanvas;
          
         [SerializeField] private WeaponScObject weaponSc;
 
@@ -33,7 +34,7 @@ namespace Player
         {
             currentHp -= value;
             hpBar.SetBarProgress(currentHp / machineSc.HitPoints);
-            hpBar.SetText(currentHp.ToString());
+            hpBar.SetText(math.round(currentHp).ToString());
             if (currentHp <= 0)
             {
                 currentHp -= value;
@@ -42,6 +43,17 @@ namespace Player
             }
             
             return true;
+        }
+
+        private void RegenerateHP(float value)
+        {
+            if (machineSc.HitPoints >= currentHp + value)
+            {
+
+                currentHp += value;
+            }
+            hpBar.SetBarProgress(currentHp / machineSc.HitPoints);
+            hpBar.SetText(math.round(currentHp).ToString());
         }
 
         public void AddStamina(float value)
@@ -76,6 +88,8 @@ namespace Player
         {
             if (CurrentValues.CurrentPlayerMachine is not null)
                 machineSc = CurrentValues.CurrentPlayerMachine;
+            if (CurrentValues.CurrentPlayerWeapon is not null)
+                weaponSc = CurrentValues.CurrentPlayerWeapon;
             weaponScript.SetScObject(weaponSc);
             weaponBar.UpdateName(weaponSc.WeaponName);
             UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
@@ -89,6 +103,14 @@ namespace Player
         {
             playerMovement.MovePlayer(playerInput.GetMovementInput());
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0.0f;
+                pauseCanvas.SetActive(true);
+            }
+
+            RegenerateHP(machineSc.HitPointsRecoverSpeed * Time.deltaTime);
             
             if (playerInput.GetFireInput()) 
                 Fire();

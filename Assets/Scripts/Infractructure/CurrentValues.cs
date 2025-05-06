@@ -14,6 +14,12 @@ public static class CurrentValues
 
     public static List<MachineScObject> AllAvaibleMachines { get; private set; }
 
+    public static WeaponScObject CurrentPlayerWeapon { get; private set; }
+
+    public static List<WeaponScObject> OpenedWeapons { get; private set; }
+
+    public static List<WeaponScObject> AllAvaibleWeapons { get; private set; }
+
     public static void AddPoints(int value)
     {
         Points += value;
@@ -39,11 +45,24 @@ public static class CurrentValues
         OpenedMachines.Add(newMachine);
     }
 
-    public static void Initialize(List<MachineScObject> machines)
+    public static void SetCurrentPlayerWeapon(WeaponScObject newMachine)
+    {
+        CurrentPlayerWeapon = newMachine;
+    }
+
+    public static void AddToOpenedWeapons(WeaponScObject newMachine)
+    {
+        OpenedWeapons.Add(newMachine);
+    }
+
+    public static void Initialize(List<MachineScObject> machines, List<WeaponScObject> weapons)
     {
         OpenedMachines = new List<MachineScObject>() { machines[0] };
+        OpenedWeapons = new List<WeaponScObject>() { weapons[0] };
         AllAvaibleMachines = machines;
+        AllAvaibleWeapons = weapons;
         CurrentPlayerMachine = machines[0];
+        CurrentPlayerWeapon = weapons[0];
         Initialized = true;
     }
 }

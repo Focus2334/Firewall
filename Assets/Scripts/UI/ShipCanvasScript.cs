@@ -7,29 +7,50 @@ using System.Collections.Generic;
 public class ShipCanvasScript : MonoBehaviour
 {
     [SerializeField] private MachineScObject selectedMachine;
+    [SerializeField] private WeaponScObject selectedWeapon;
     [SerializeField] private MainMenuScript mainMenu;
-    [SerializeField] private TMP_Dropdown dropdown;
-    [SerializeField] private TMP_Text dropdownText;
+    [SerializeField] private TMP_Dropdown shipDropdown;
+    [SerializeField] private TMP_Dropdown weaponDropdown;
+    [SerializeField] private TMP_Text shipDropdownText;
+    [SerializeField] private TMP_Text weaponDropdownText;
     [SerializeField] private TMP_Text buyText;
+    [SerializeField] private TMP_Text weaponBuyText;
     [SerializeField] private TMP_Text babloText;
     [SerializeField] private GameObject bablo;
 
     private int babloAcces = 0;
 
-    public void Buy()
+    public void BuyShip()
     {
         if (CurrentValues.OpenedMachines.Contains(selectedMachine))
         {
             CurrentValues.SetCurrentPlayerMachine(selectedMachine);
-            print("i");
+            buyText.text = "»—œŒÀ‹«”≈“—ﬂ";
         }
         else if (CurrentValues.BuyForPoints(100))
         {
             CurrentValues.SetCurrentPlayerMachine(selectedMachine);
             CurrentValues.OpenedMachines.Add(selectedMachine);
             babloText.text = CurrentValues.Points.ToString();
-            print(CurrentValues.Points);
+            buyText.text = "»—œŒÀ‹«”≈“—ﬂ";
         }
+    }
+
+    public void BuyWeapon()
+    {
+        if (CurrentValues.OpenedWeapons.Contains(selectedWeapon))
+        {
+            CurrentValues.SetCurrentPlayerWeapon(selectedWeapon);
+            weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";
+        }
+        else if (CurrentValues.BuyForPoints(100))
+        {
+            CurrentValues.SetCurrentPlayerWeapon(selectedWeapon);
+            CurrentValues.OpenedWeapons.Add(selectedWeapon);
+            babloText.text = CurrentValues.Points.ToString();
+            weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";
+        }
+        print(CurrentValues.CurrentPlayerWeapon);
     }
 
     public void BABLO()
@@ -49,8 +70,13 @@ public class ShipCanvasScript : MonoBehaviour
 
     public void ChangeSelectedMachine()
     {
-        selectedMachine = CurrentValues.AllAvaibleMachines[dropdown.value];
-        if (CurrentValues.OpenedMachines.Contains(selectedMachine))
+        selectedMachine = CurrentValues.AllAvaibleMachines[shipDropdown.value];
+
+        if (selectedMachine.MachineName == CurrentValues.CurrentPlayerMachine.MachineName)
+        {
+            buyText.text = "»—œŒÀ‹«”≈“—ﬂ";
+        }
+        else if (CurrentValues.OpenedMachines.Contains(selectedMachine))
         {
             buyText.text = "»—œŒÀ‹«Œ¬¿“‹";
         }
@@ -60,15 +86,42 @@ public class ShipCanvasScript : MonoBehaviour
         }
     }
 
+    public void ChangeSelectedWeapon()
+    {
+        selectedWeapon = CurrentValues.AllAvaibleWeapons[weaponDropdown.value];
+        print(selectedWeapon.WeaponName);
+        print(CurrentValues.CurrentPlayerWeapon.WeaponName);
+        if (selectedWeapon.WeaponName == CurrentValues.CurrentPlayerWeapon.WeaponName)
+        {
+            weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";
+        }
+        else if (CurrentValues.OpenedWeapons.Contains(selectedWeapon))
+        {
+            weaponBuyText.text = "»—œŒÀ‹«Œ¬¿“‹";
+        }
+        else
+        {
+            weaponBuyText.text = " ”œ»“‹";
+        }
+    }
+
     private void Start()
     {
         selectedMachine = CurrentValues.AllAvaibleMachines[0];
-        dropdownText.text = selectedMachine.MachineName;
+        shipDropdownText.text = selectedMachine.MachineName;
         babloText.text = CurrentValues.Points.ToString();
         
         foreach (var item in CurrentValues.AllAvaibleMachines)
         {
-            dropdown.options.Add(new TMP_Dropdown.OptionData(item.MachineName));
+            shipDropdown.options.Add(new TMP_Dropdown.OptionData(item.MachineName));
+        }
+
+        selectedWeapon = CurrentValues.AllAvaibleWeapons[0];
+        weaponDropdownText.text = selectedWeapon.WeaponName;
+
+        foreach (var item in CurrentValues.AllAvaibleWeapons)
+        {
+            weaponDropdown.options.Add(new TMP_Dropdown.OptionData(item.WeaponName));
         }
     }
 

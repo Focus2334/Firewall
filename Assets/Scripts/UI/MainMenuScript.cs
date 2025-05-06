@@ -12,6 +12,7 @@ namespace UI
         [SerializeField] private ShipCanvasScript shipCanvasScript;
 
         [SerializeField] private List<MachineScObject> playerMachines;
+        [SerializeField] private List<WeaponScObject> playerWeapons;
 
         public void Play() => SceneManager.LoadScene("Game scene");
 
@@ -27,7 +28,7 @@ namespace UI
         {
             if (!CurrentValues.Initialized) 
             { 
-                CurrentValues.Initialize(playerMachines);
+                CurrentValues.Initialize(playerMachines, playerWeapons);
             }
         }
     }
