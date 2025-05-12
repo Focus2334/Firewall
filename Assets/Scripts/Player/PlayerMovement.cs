@@ -6,6 +6,8 @@ namespace Player
     {
         [SerializeField] private PlayerScript player;
         [SerializeField] private ParticleSystem particles;
+        [SerializeField] private AudioSource dashSound;
+        [SerializeField] private GameObject dashLight;
 
         private Rigidbody2D playerRigidbody2D;
 
@@ -35,6 +37,8 @@ namespace Player
 
         public void Dash()
         {
+            dashSound.Play();
+            Instantiate(dashLight, transform.position, new Quaternion());
             player.AddStamina(-player.MachineScObject.DashStaminaNeed);
             maxSpeed = player.MachineScObject.MaxDashSpeed;
             acceleration = player.MachineScObject.DashAccel;
@@ -47,7 +51,7 @@ namespace Player
             maxSpeed = player.MachineScObject.MaxSpeed;
             acceleration = player.MachineScObject.Acceleration;
             var emission = particles.emission;
-            emission.rateOverTime = 300;
+            emission.rateOverTime = 200;
         }
     }
 }

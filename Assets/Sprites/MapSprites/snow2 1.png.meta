@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8991055639d0d754dbaa37a197c286cd
+guid: 6b7eb5e4f6a50774cb0a279c575e4314
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4524403157298716526
-    second: bablopng_0
+      213: 6968785673896734172
+    second: snow2 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bablopng_0
+      name: snow2 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 640
+        width: 256
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6f127343b8e9ce30800000000000000
-      internalID: 4524403157298716526
+      spriteID: cdd2270f5a916b060800000000000000
+      internalID: 6968785673896734172
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bablopng_0: 4524403157298716526
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

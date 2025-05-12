@@ -38,10 +38,13 @@ namespace Enemy
 
         protected internal void Update()
         {
-            movement.CheckIsOnFire();
-            movement.MoveUpdate();
-            if (movement.IsOnFire)
-                weapon.Fire();
+            if (Target is not null)
+            {
+                movement.CheckIsOnFire();
+                movement.MoveUpdate();
+                if (movement.IsOnFire)
+                    weapon.Fire();
+            }
         }
 
         public bool TakeDamage(float value)
