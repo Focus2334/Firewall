@@ -11,7 +11,7 @@ namespace Enemy
         [SerializeField] private EnemyMovement movement;
         [SerializeField] private WeaponScript weapon;
         [SerializeField] private WeaponScObject weaponScObject;
-        [SerializeField] private EnemyScObject enemySc;
+        [SerializeField] protected internal EnemyScObject enemySc;
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerScript target;

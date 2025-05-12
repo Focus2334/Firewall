@@ -26,7 +26,7 @@ namespace Weapon
         private void Start()
         {
             projectileRigidbody = GetComponent<Rigidbody2D>();
-            projectileRigidbody.AddForce(transform.up * projectileSc.Velocity);
+            projectileRigidbody.AddForce(transform.up * projectileSc.BulletSpeed);
             currentLifetime = projectileSc.Lifetime;
         }
 

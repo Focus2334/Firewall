@@ -34,10 +34,34 @@ namespace Enemy
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerPosition = player.PlayerRigidbody2D.position;
             var direction = (playerPosition - enemyPosition).normalized;
+            RotateEnemyOnDirection(direction);
+            /*var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+            enemy.EnemyRigidbody2D.SetRotation(targetAngle);*/
+        }
+        
+        private void RotateEnemyForPreFire()
+        {
+            var playerPosition = player.PlayerRigidbody2D.position;
+            var enemyPosition = enemy.EnemyRigidbody2D.position;
+            var playerSpeed = player.PlayerRigidbody2D.linearVelocity.magnitude;
+            var enemyBulletSpeed = enemy.enemySc.Weapon.Projectile.BulletSpeed;
+            
+            var timeDeltaX = (playerPosition.x - enemyPosition.x) / (enemyBulletSpeed - playerSpeed);
+            var timeDeltaY = (playerPosition.y - enemyPosition.y) / (enemyBulletSpeed - playerSpeed);
+            var timeDelta = timeDeltaX + timeDeltaY;
+            
+            var destinationPoint = playerPosition + player.PlayerRigidbody2D.linearVelocity * timeDelta;
+            var direction = (destinationPoint - enemyPosition).normalized;
+            
+            RotateEnemyOnDirection(direction);
+        }
+
+        private void RotateEnemyOnDirection(Vector2 direction)
+        {
             var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             enemy.EnemyRigidbody2D.SetRotation(targetAngle);
         }
-
+        
         private float DistanceToTarget()
         {
             var enemyPosition = enemy.EnemyRigidbody2D.position;
@@ -102,7 +126,11 @@ namespace Enemy
 
         protected internal void MoveUpdate()
         {
-            RotateEnemy();
+            if (IsOnFire)
+                RotateEnemyForPreFire();
+            else 
+                RotateEnemy();
+            
             if (!IsOnFire || DistanceToTarget() > enemy.EnemySc.MoveForwardDistance)
             {
                 agent.isStopped = false;

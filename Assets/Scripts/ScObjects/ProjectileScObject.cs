@@ -12,7 +12,7 @@ namespace ScObjects
 
         public string ProjectileName => projectileName;
 
-        public float Velocity => velocity;
+        public float BulletSpeed => velocity;
 
         public Texture2D Texture => texture;
 
