@@ -46,21 +46,30 @@ namespace Enemy
             /*var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
             enemy.EnemyRigidbody2D.SetRotation(targetAngle);*/
         }
+
+        private Vector2 GetShootVector(float projSpeed, Vector3 targetTelocity, Vector3 direction)
+        {
+            var sin = Vector3.Cross(targetTelocity, direction).z / (direction.magnitude * projSpeed);
+
+            if (math.abs(sin) > 1)
+            {
+                print("n");
+                return Vector2.zero;
+            }
+            var cos = math.sqrt(1 - sin * sin);
+            var tsign = projSpeed * direction.magnitude * cos - Vector2.Dot(targetTelocity, direction);
+            return Quaternion.AngleAxis(Mathf.Rad2Deg * -math.asin(sin), Vector3.forward) * direction;
+        }
         
         private void RotateEnemyForPreFire()
         {
+            
             var playerPosition = player.PlayerRigidbody2D.position;
             var enemyPosition = enemy.EnemyRigidbody2D.position;
-            var playerSpeed = player.PlayerRigidbody2D.linearVelocity.magnitude;
+            var playerSpeed = player.PlayerRigidbody2D.linearVelocity;
             var enemyBulletSpeed = enemy.enemySc.Weapon.Projectile.BulletSpeed;
             
-            var timeDeltaX = (playerPosition.x - enemyPosition.x) / (enemyBulletSpeed - playerSpeed);
-            var timeDeltaY = (playerPosition.y - enemyPosition.y) / (enemyBulletSpeed - playerSpeed);
-            var timeDelta = math.abs(timeDeltaX + timeDeltaY);
-            
-            var destinationPoint = playerPosition + player.PlayerRigidbody2D.linearVelocity * timeDelta;
-            var direction = (destinationPoint - enemyPosition).normalized;
-            print(timeDelta);
+            var direction = GetShootVector(enemyBulletSpeed, playerSpeed, playerPosition - enemyPosition);
             RotateEnemyOnDirection(direction);
         }
 
