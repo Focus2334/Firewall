@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPointsScript : MonoBehaviour
+public class EnemyPointsScript : MonoBehaviour, IProjectile
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

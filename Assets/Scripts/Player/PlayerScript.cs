@@ -16,7 +16,9 @@ namespace Player
         [SerializeField] private HpBarScript hpBar;
         [SerializeField] private EnergyBarScript energyBar;
         [SerializeField] private GameObject pauseCanvas;
+        [SerializeField] private GameObject deathCanvas;
         [SerializeField] private WeaponScObject weaponSc;
+
         [SerializeField] private MachineScObject machineSc;
 
         private float currentHp;
@@ -27,6 +29,8 @@ namespace Player
         public MachineScObject MachineScObject => machineSc;
 
         private float dashTimer;
+
+        private bool dead;
 
         public bool TakeDamage(float value)
         {
@@ -80,10 +84,21 @@ namespace Player
 
         private void UpdateWeaponBar(string value, Color color) => weaponBar.UpdateNumber(value, color);
 
-        private void Death() => SceneManager.LoadScene("Main menu");
+        private void Death()
+        {
+            dead = true;
+            Time.timeScale = 0.0f;
+            deathCanvas.SetActive(true);
+        }
+
+        private void Awake()
+        {
+            PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
         private void Start()
         {
+            dead = false;
             if (CurrentValues.CurrentPlayerMachine is not null)
                 machineSc = CurrentValues.CurrentPlayerMachine;
             if (CurrentValues.CurrentPlayerWeapon is not null)
@@ -93,7 +108,7 @@ namespace Player
             UpdateWeaponBar(weaponSc.MagSize.ToString(), Color.white);
             currentHp = machineSc.HitPoints;
             currentStamina = machineSc.MaxStamina;
-            PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+            
             gameObject.GetComponent<SpriteRenderer>().sprite = machineSc.Sprite;
         }
 
@@ -101,12 +116,6 @@ namespace Player
         {
             playerMovement.MovePlayer(playerInput.GetMovementInput());
             playerMovement.RotatePlayer(playerInput.GetMousePosition());
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 0.0f;
-                pauseCanvas.SetActive(true);
-            }
 
             RegenerateHP(machineSc.HitPointsRecoverSpeed * Time.deltaTime);
             
@@ -143,6 +152,12 @@ namespace Player
                 AddStamina(machineSc.StaminaRecoverSpeed * Time.deltaTime);
                 if (currentStamina >= machineSc.MaxStamina)
                     SetStamina(machineSc.MaxStamina);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape) && !dead)
+            {
+                Time.timeScale = 0.0f;
+                pauseCanvas.SetActive(true);
             }
         }
     }

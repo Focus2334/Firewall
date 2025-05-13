@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ac226730078e9419a08a36c17b49f2, type: 3}
   m_Name: FirstWave
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: 8800f57ba9b73ae4dba79aa65503008c, type: 2}
+  enemies: []

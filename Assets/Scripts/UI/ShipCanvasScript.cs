@@ -2,6 +2,7 @@ using ScObjects;
 using TMPro;
 using UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ShipCanvasScript : MonoBehaviour
 {
@@ -24,14 +25,14 @@ public class ShipCanvasScript : MonoBehaviour
         if (CurrentValues.OpenedMachines.Contains(selectedMachine))
         {
             CurrentValues.SetCurrentPlayerMachine(selectedMachine);
-            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            buyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
         else if (CurrentValues.BuyForPoints(100))
         {
             CurrentValues.SetCurrentPlayerMachine(selectedMachine);
             CurrentValues.OpenedMachines.Add(selectedMachine);
             babloText.text = CurrentValues.Points.ToString();
-            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            buyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
     }
 
@@ -40,23 +41,21 @@ public class ShipCanvasScript : MonoBehaviour
         if (CurrentValues.OpenedWeapons.Contains(selectedWeapon))
         {
             CurrentValues.SetCurrentPlayerWeapon(selectedWeapon);
-            weaponBuyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            weaponBuyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
         else if (CurrentValues.BuyForPoints(100))
         {
             CurrentValues.SetCurrentPlayerWeapon(selectedWeapon);
             CurrentValues.OpenedWeapons.Add(selectedWeapon);
             babloText.text = CurrentValues.Points.ToString();
-            weaponBuyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            weaponBuyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
-        print(CurrentValues.CurrentPlayerWeapon);
     }
 
     public void BABLO()
     {
         CurrentValues.AddPoints(100);
         babloText.text = CurrentValues.Points.ToString();
-        print(CurrentValues.Points);
     }
 
     public void Exit()
@@ -69,56 +68,54 @@ public class ShipCanvasScript : MonoBehaviour
 
     public void ChangeSelectedMachine()
     {
-        selectedMachine = CurrentValues.AllAvailableMachines[shipDropdown.value];
+        selectedMachine = CurrentValues.AllAvaibleMachines[shipDropdown.value];
 
         if (selectedMachine.MachineName == CurrentValues.CurrentPlayerMachine.MachineName)
         {
-            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            buyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
         else if (CurrentValues.OpenedMachines.Contains(selectedMachine))
         {
-            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            buyText.text = "ÈÑÏÎËÜÇÎÂÀÒÜ";
         }
         else
         {
-            buyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            buyText.text = "ÊÓÏÈÒÜ";
         }
     }
 
     public void ChangeSelectedWeapon()
     {
-        selectedWeapon = CurrentValues.AllAvailableWeapons[weaponDropdown.value];
-        print(selectedWeapon.WeaponName);
-        print(CurrentValues.CurrentPlayerWeapon.WeaponName);
+        selectedWeapon = CurrentValues.AllAvaibleWeapons[weaponDropdown.value];
         if (selectedWeapon.WeaponName == CurrentValues.CurrentPlayerWeapon.WeaponName)
         {
-            weaponBuyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            weaponBuyText.text = "ÈÑÏÎËÜÇÓÅÒÑß";
         }
         else if (CurrentValues.OpenedWeapons.Contains(selectedWeapon))
         {
-            weaponBuyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            weaponBuyText.text = "ÈÑÏÎËÜÇÎÂÀÒÜ";
         }
         else
         {
-            weaponBuyText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+            weaponBuyText.text = "ÊÓÏÈÒÜ";
         }
     }
 
     private void Start()
     {
-        selectedMachine = CurrentValues.AllAvailableMachines[0];
+        selectedMachine = CurrentValues.AllAvaibleMachines[0];
         shipDropdownText.text = selectedMachine.MachineName;
         babloText.text = CurrentValues.Points.ToString();
         
-        foreach (var item in CurrentValues.AllAvailableMachines)
+        foreach (var item in CurrentValues.AllAvaibleMachines)
         {
             shipDropdown.options.Add(new TMP_Dropdown.OptionData(item.MachineName));
         }
 
-        selectedWeapon = CurrentValues.AllAvailableWeapons[0];
+        selectedWeapon = CurrentValues.AllAvaibleWeapons[0];
         weaponDropdownText.text = selectedWeapon.WeaponName;
 
-        foreach (var item in CurrentValues.AllAvailableWeapons)
+        foreach (var item in CurrentValues.AllAvaibleWeapons)
         {
             weaponDropdown.options.Add(new TMP_Dropdown.OptionData(item.WeaponName));
         }

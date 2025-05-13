@@ -38,7 +38,7 @@ namespace EnemySpawner
             var positionCounter = 0;
             foreach (var enemyScObject in waves[currentWave].Enemies)
             {
-                var enemyInstance = Instantiate(enemyPrefab, positions[positionCounter], new Quaternion());
+                var enemyInstance = Instantiate(enemyPrefab, positions[positionCounter], new Quaternion(0,0,0,0));
                 var enemyScript = enemyInstance.GetComponent<EnemyScript>();
                 enemyScript.SetScObject(enemyScObject);
                 enemyScript.Target = player;

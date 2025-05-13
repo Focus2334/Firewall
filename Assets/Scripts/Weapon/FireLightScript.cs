@@ -13,7 +13,7 @@ namespace Weapon
             lifetime -= Time.deltaTime;
             if (!(lights is null))
             {
-                lights.pointLightOuterRadius *= 1.02f * Time.deltaTime;
+                lights.pointLightOuterRadius += 10f * Time.deltaTime;
             }
             
             if (lifetime < 0)

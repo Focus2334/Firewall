@@ -13,17 +13,24 @@ namespace Enemy
 
         private NavMeshAgent agent;
         private PlayerScript player;
+        private Rigidbody2D enemyRb;
         private float strafeTimer;
         private float onFireTimer = 0.1f;
         private bool strafeRightDirection = true;
         
         public bool IsOnFire { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
             agent = enemy.Agent;
-            agent.updateUpAxis = false;
+            enemyRb = enemy.EnemyRigidbody2D;
+        }
+
+        private void Start()
+        {
             
+            agent.updateUpAxis = false;
+
             player = enemy.Target;
             strafeTimer = enemy.EnemySc.StrafeTime;
             agent.speed = enemy.EnemySc.Machine.MaxSpeed;
@@ -32,7 +39,7 @@ namespace Enemy
 
         private void RotateEnemy()
         {
-            var enemyPosition = enemy.EnemyRigidbody2D.position;
+            var enemyPosition = enemyRb.position;
             var playerPosition = player.PlayerRigidbody2D.position;
             var direction = (playerPosition - enemyPosition).normalized;
             RotateEnemyOnDirection(direction);
@@ -60,7 +67,7 @@ namespace Enemy
         private void RotateEnemyOnDirection(Vector2 direction)
         {
             var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            enemy.EnemyRigidbody2D.SetRotation(targetAngle);
+            enemy.transform.rotation = Quaternion.Euler(0, 0, targetAngle);
         }
         
         private float DistanceToTarget()
@@ -94,8 +101,10 @@ namespace Enemy
 
         public void CheckIsOnFire()
         {
+            player = enemy.Target;
             var enemyPosition = enemy.EnemyRigidbody2D.position;
-            var playerPosition = player.PlayerRigidbody2D.position;
+            var playerRig = player.PlayerRigidbody2D;
+            var playerPosition = playerRig.position;
             var direction = (playerPosition - enemyPosition).normalized;
             var raycast = Physics2D.RaycastAll(enemyPosition, direction, raycastDistance);
 
