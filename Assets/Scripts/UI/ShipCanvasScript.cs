@@ -3,6 +3,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ShipCanvasScript : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class ShipCanvasScript : MonoBehaviour
     [SerializeField] private TMP_Text weaponBuyText;
     [SerializeField] private TMP_Text babloText;
     [SerializeField] private GameObject bablo;
+    [SerializeField] private Image shipImage;
+    [SerializeField] private Image weaponImage;
 
     private int babloAcces = 0;
 
@@ -69,7 +72,7 @@ public class ShipCanvasScript : MonoBehaviour
     public void ChangeSelectedMachine()
     {
         selectedMachine = CurrentValues.AllAvailableMachines[shipDropdown.value];
-
+        shipImage.sprite = selectedMachine.Sprite;
         if (selectedMachine.MachineName == CurrentValues.CurrentPlayerMachine.MachineName)
         {
             buyText.text = "»—œŒÀ‹«”≈“—ﬂ";
@@ -87,6 +90,7 @@ public class ShipCanvasScript : MonoBehaviour
     public void ChangeSelectedWeapon()
     {
         selectedWeapon = CurrentValues.AllAvailableWeapons[weaponDropdown.value];
+        weaponImage.sprite = selectedWeapon.Texture;
         if (selectedWeapon.WeaponName == CurrentValues.CurrentPlayerWeapon.WeaponName)
         {
             weaponBuyText.text = "»—œŒÀ‹«”≈“—ﬂ";
