@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Player;
+using Unity.Mathematics;
 
 namespace Enemy
 {
@@ -48,11 +49,11 @@ namespace Enemy
             
             var timeDeltaX = (playerPosition.x - enemyPosition.x) / (enemyBulletSpeed - playerSpeed);
             var timeDeltaY = (playerPosition.y - enemyPosition.y) / (enemyBulletSpeed - playerSpeed);
-            var timeDelta = timeDeltaX + timeDeltaY;
+            var timeDelta = math.abs(timeDeltaX + timeDeltaY);
             
             var destinationPoint = playerPosition + player.PlayerRigidbody2D.linearVelocity * timeDelta;
             var direction = (destinationPoint - enemyPosition).normalized;
-            
+            print(timeDelta);
             RotateEnemyOnDirection(direction);
         }
 

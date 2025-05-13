@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemyProj
   m_EditorClassIdentifier: 
   projectileName: EnemyP
-  velocity: 1000
+  velocity: 30
   texture: {fileID: 0}
   lifetime: 1
