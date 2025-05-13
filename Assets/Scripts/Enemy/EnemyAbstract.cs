@@ -11,13 +11,16 @@ namespace Enemy
         [SerializeField] private EnemyMovement movement;
         [SerializeField] private WeaponScript weapon;
         [SerializeField] private WeaponScObject weaponScObject;
-        [SerializeField] protected internal EnemyScObject enemySc;
+        [SerializeField] private EnemyScObject enemySc;
         [SerializeField] private Rigidbody2D enemyRigidbody2D;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private PlayerScript target;
         [SerializeField] private GameObject points;
+        [SerializeField] private bool onPreFire;
         
         private float currentHp;
+        
+        public bool OnPreFire => onPreFire;
         
         public Rigidbody2D EnemyRigidbody2D => enemyRigidbody2D;
         

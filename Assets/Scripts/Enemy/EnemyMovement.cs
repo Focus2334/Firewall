@@ -28,7 +28,6 @@ namespace Enemy
 
         private void Start()
         {
-            
             agent.updateUpAxis = false;
 
             player = enemy.Target;
@@ -43,31 +42,29 @@ namespace Enemy
             var playerPosition = player.PlayerRigidbody2D.position;
             var direction = (playerPosition - enemyPosition).normalized;
             RotateEnemyOnDirection(direction);
-            /*var targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-            enemy.EnemyRigidbody2D.SetRotation(targetAngle);*/
         }
 
-        private Vector2 GetShootVector(float projSpeed, Vector3 targetTelocity, Vector3 direction)
+        private Vector2 GetShootVector(float projSpeed, Vector3 targetVelocity, Vector3 direction)
         {
-            var sin = Vector3.Cross(targetTelocity, direction).z / (direction.magnitude * projSpeed);
+            var sin = Vector3.Cross(targetVelocity, direction).z / (direction.magnitude * projSpeed);
 
             if (math.abs(sin) > 1)
-            {
-                print("n");
                 return Vector2.zero;
-            }
+            
             var cos = math.sqrt(1 - sin * sin);
-            var tsign = projSpeed * direction.magnitude * cos - Vector2.Dot(targetTelocity, direction);
-            return Quaternion.AngleAxis(Mathf.Rad2Deg * -math.asin(sin), Vector3.forward) * direction;
+            var tsign = projSpeed * direction.magnitude * cos - Vector2.Dot(targetVelocity, direction);
+
+            return tsign < 0
+                ? Vector2.zero
+                : Quaternion.AngleAxis(Mathf.Rad2Deg * -math.asin(sin), Vector3.forward) * direction;
         }
         
         private void RotateEnemyForPreFire()
         {
-            
             var playerPosition = player.PlayerRigidbody2D.position;
             var enemyPosition = enemy.EnemyRigidbody2D.position;
             var playerSpeed = player.PlayerRigidbody2D.linearVelocity;
-            var enemyBulletSpeed = enemy.enemySc.Weapon.Projectile.BulletSpeed;
+            var enemyBulletSpeed = enemy.EnemySc.Weapon.Projectile.BulletSpeed;
             
             var direction = GetShootVector(enemyBulletSpeed, playerSpeed, playerPosition - enemyPosition);
             RotateEnemyOnDirection(direction);
@@ -145,7 +142,7 @@ namespace Enemy
 
         protected internal void MoveUpdate()
         {
-            if (IsOnFire)
+            if (IsOnFire && enemy.OnPreFire)
                 RotateEnemyForPreFire();
             else 
                 RotateEnemy();
