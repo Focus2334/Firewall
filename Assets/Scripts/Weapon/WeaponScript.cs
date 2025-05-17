@@ -27,10 +27,7 @@ namespace Weapon
             currentProjectilesCount = weaponSc.MagSize;
         }
 
-        private void Start()
-        {
-            weaponSprite.GetComponent<SpriteRenderer>().sprite = weaponSc.Texture;
-        }
+        private void Start() => weaponSprite.GetComponent<SpriteRenderer>().sprite = weaponSc.Texture;
 
         private void Update()
         {
@@ -44,10 +41,8 @@ namespace Weapon
                 }
             }
 
-            if (fireRateTimer > 0)
-            {
+            if (fireRateTimer > 0) 
                 fireRateTimer -= Time.deltaTime;
-            }
 
             if (ReloadTimer > 0)
             {
