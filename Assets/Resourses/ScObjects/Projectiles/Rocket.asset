@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ac226730078e9419a08a36c17b49f2, type: 3}
-  m_Name: FirstWave
+  m_Script: {fileID: 11500000, guid: 67e963f91a96b4947965be6051d2b419, type: 3}
+  m_Name: Rocket
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: d088874b48c3d774fa9d30ac0a106a92, type: 2}
+  projectileName: Rocket
+  velocity: 0
+  texture: {fileID: 0}
+  lifetime: 1
+  projectilePrefab: {fileID: 7974853260477010470, guid: 7b65e738ae3c25b429f5531537ce6ac1, type: 3}

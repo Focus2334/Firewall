@@ -29,6 +29,10 @@ namespace Weapon
 
         private void Start()
         {
+            if (weaponSc.Projectile.ProjectilePrefab != null)
+            {
+                projectile = weaponSc.Projectile.ProjectilePrefab;
+            }
             weaponSprite.GetComponent<SpriteRenderer>().sprite = weaponSc.Texture;
         }
 
@@ -87,7 +91,7 @@ namespace Weapon
             var createdProjectile = Instantiate(projectile, firePosition, projectileRotation);
             Instantiate(fireLight, fireLightPosition, transform.rotation);
             Instantiate(fireSound, fireLightPosition, transform.rotation);
-            var createdProjectileScript = createdProjectile.GetComponent<ProjectileScript>();
+            var createdProjectileScript = createdProjectile.GetComponent<IProjectile>();
             createdProjectileScript.SetScObject(weaponSc.Projectile);
             createdProjectileScript.SetDamage(weaponSc.Damage);
             fireRateTimer = weaponSc.FireRate;

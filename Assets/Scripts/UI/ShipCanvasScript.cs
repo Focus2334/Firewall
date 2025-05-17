@@ -123,6 +123,8 @@ public class ShipCanvasScript : MonoBehaviour
         {
             weaponDropdown.options.Add(new TMP_Dropdown.OptionData(item.WeaponName));
         }
+        ChangeSelectedWeapon();
+        ChangeSelectedMachine();
     }
 
     private void Update()

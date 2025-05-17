@@ -6,7 +6,6 @@ namespace Weapon
     public class ProjectileScript : MonoBehaviour, IProjectile
     {
         private Rigidbody2D projectileRigidbody;
-        private BoxCollider2D boxCollider;
 
         [SerializeField] private ProjectileScObject projectileSc;
 

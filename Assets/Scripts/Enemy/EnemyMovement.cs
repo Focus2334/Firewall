@@ -153,7 +153,9 @@ namespace Enemy
                 NavMeshMoveEnemy();
             }
             else if (IsOnFire && DistanceToTarget() < enemy.EnemySc.MoveBackDistance)
+            {
                 MoveBack();
+            }
             else
                 Strafe();
         }
