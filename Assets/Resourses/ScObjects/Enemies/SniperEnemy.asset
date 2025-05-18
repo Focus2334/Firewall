@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Armored
   machine: {fileID: 11400000, guid: 6b2b4f12798f4a84890d0aa9a11c0c8a, type: 2}
   weapon: {fileID: 11400000, guid: 686d7015d33f8fa47a85401d7ea94369, type: 2}
-  strafeSpeed: 3
+  strafeSpeed: 7
   strafeTime: 2
-  moveBackDistance: 2
+  moveBackDistance: 6
   moveForwardDistance: 6

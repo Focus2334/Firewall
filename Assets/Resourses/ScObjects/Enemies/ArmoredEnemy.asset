@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0ec24b9208ca94fa2852d9f32a5153, type: 3}
   m_Name: ArmoredEnemy
   m_EditorClassIdentifier: 
-  enemyName: 
-  machine: {fileID: 0}
-  weapon: {fileID: 0}
-  strafeSpeed: 0
-  strafeTime: 0
-  moveBackDistance: 0
-  moveForwardDistance: 0
+  enemyName: Armored
+  machine: {fileID: 11400000, guid: a7802ea17fd1ec843b5e94fca4dea58b, type: 2}
+  weapon: {fileID: 11400000, guid: c3073e01756198245b1357d3ef679126, type: 2}
+  strafeSpeed: 4
+  strafeTime: 2
+  moveBackDistance: 3
+  moveForwardDistance: 4
