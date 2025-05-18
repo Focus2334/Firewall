@@ -34,6 +34,7 @@ namespace Enemy
 
         protected void Start()
         {
+            CurrentValues.IncrementEnemies();
             currentHp = enemySc.Machine.HitPoints;
             weapon.SetScObject(enemySc.Weapon);
             gameObject.GetComponent<SpriteRenderer>().sprite = enemySc.Machine.Sprite;
@@ -60,6 +61,7 @@ namespace Enemy
         
         private bool Death()
         {
+            CurrentValues.DecrementEnemies();
             Instantiate(points, transform.position, transform.rotation);
             Destroy(gameObject);
             return true;

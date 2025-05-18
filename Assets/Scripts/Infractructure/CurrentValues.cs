@@ -18,6 +18,12 @@ public static class CurrentValues
     public static List<WeaponScObject> OpenedWeapons { get; private set; }
 
     public static List<WeaponScObject> AllAvailableWeapons { get; private set; }
+
+    public static int EnemyCount { get; private set; }
+
+    public static void IncrementEnemies() => EnemyCount++;
+    public static void DecrementEnemies() => EnemyCount--;
+    public static void ClearEnemies() => EnemyCount = 0;
     
     public static void AddPoints(int value) => Points += value;
 
