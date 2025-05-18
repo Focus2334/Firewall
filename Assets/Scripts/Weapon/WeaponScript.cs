@@ -48,10 +48,8 @@ namespace Weapon
                 }
             }
 
-            if (fireRateTimer > 0)
-            {
+            if (fireRateTimer > 0) 
                 fireRateTimer -= Time.deltaTime;
-            }
 
             if (ReloadTimer > 0)
             {

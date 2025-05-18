@@ -18,7 +18,6 @@ namespace Player
         [SerializeField] private GameObject pauseCanvas;
         [SerializeField] private GameObject deathCanvas;
         [SerializeField] private WeaponScObject weaponSc;
-
         [SerializeField] private MachineScObject machineSc;
 
         private float currentHp;

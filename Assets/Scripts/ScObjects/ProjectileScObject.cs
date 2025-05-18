@@ -10,6 +10,7 @@ namespace ScObjects
         [SerializeField] private Texture2D texture;
         [SerializeField] private float lifetime;
         [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private bool isEnemiesProj;
 
         public string ProjectileName => projectileName;
 
@@ -20,5 +21,7 @@ namespace ScObjects
         public float Lifetime => lifetime;
 
         public GameObject ProjectilePrefab => projectilePrefab;
+        
+        public bool IsEnemiesProj => isEnemiesProj;
     }
 }
