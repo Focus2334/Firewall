@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class ShipCanvasScript : MonoBehaviour
 {
-    [SerializeField] private MachineScObject selectedMachine;
-    [SerializeField] private WeaponScObject selectedWeapon;
+    private MachineScObject selectedMachine;
+    private WeaponScObject selectedWeapon;
     [SerializeField] private MainMenuScript mainMenu;
     [SerializeField] private TMP_Dropdown shipDropdown;
     [SerializeField] private TMP_Dropdown weaponDropdown;
@@ -20,6 +20,17 @@ public class ShipCanvasScript : MonoBehaviour
     [SerializeField] private GameObject bablo;
     [SerializeField] private Image shipImage;
     [SerializeField] private Image weaponImage;
+    [SerializeField] private TMP_Text shipInfoSpeed;
+    [SerializeField] private TMP_Text shipInfoAccel;
+    [SerializeField] private TMP_Text shipInfoHP;
+    [SerializeField] private TMP_Text shipInfoRec;
+    [SerializeField] private TMP_Text shipInfoEnergy;
+    [SerializeField] private TMP_Text shipInfoEnergyRec;
+    [SerializeField] private TMP_Text weaponInfoDamage;
+    [SerializeField] private TMP_Text weaponInfoRate;
+    [SerializeField] private TMP_Text weaponInfoSize;
+    [SerializeField] private TMP_Text weaponInfoReloadSpeed;
+    [SerializeField] private TMP_Text weaponInfoProjVelocity;
 
     private int babloAcces = 0;
 
@@ -73,6 +84,12 @@ public class ShipCanvasScript : MonoBehaviour
     {
         selectedMachine = CurrentValues.AllAvailableMachines[shipDropdown.value];
         shipImage.sprite = selectedMachine.Sprite;
+        shipInfoSpeed.text = $"—корость: {selectedMachine.MaxSpeed}";
+        shipInfoAccel.text = $"”скорение: {selectedMachine.Acceleration}";
+        shipInfoHP.text = $"«доровье: {selectedMachine.HitPoints}";
+        shipInfoRec.text = $"¬осстановление: {selectedMachine.HitPointsRecoverSpeed}";
+        shipInfoEnergy.text = $"Ёнерги€: {selectedMachine.MaxStamina}";
+        shipInfoEnergyRec.text = $"¬осстановление энергии: {selectedMachine.StaminaRecoverSpeed}";
         if (selectedMachine.MachineName == CurrentValues.CurrentPlayerMachine.MachineName)
         {
             buyText.text = "»—ѕќЋ№«”≈“—я";
@@ -83,7 +100,7 @@ public class ShipCanvasScript : MonoBehaviour
         }
         else
         {
-            buyText.text = " ”ѕ»“№";
+            buyText.text = " ”ѕ»“№[100]";
         }
     }
 
@@ -91,6 +108,11 @@ public class ShipCanvasScript : MonoBehaviour
     {
         selectedWeapon = CurrentValues.AllAvailableWeapons[weaponDropdown.value];
         weaponImage.sprite = selectedWeapon.Texture;
+        weaponInfoDamage.text = $"”рон: {selectedWeapon.Damage}";
+        weaponInfoRate.text = $"—коро-\r\nстрельность: {selectedWeapon.FireRate}";
+        weaponInfoSize.text = $" ол-во \r\nснар€дов: {selectedWeapon.MagSize}";
+        weaponInfoReloadSpeed.text = $"¬рем€ \r\nперезар€дки: {selectedWeapon.ReloadTime}";
+        weaponInfoProjVelocity.text = $"—корость \r\nснар€да: {selectedWeapon.Projectile.BulletSpeed}";
         if (selectedWeapon.WeaponName == CurrentValues.CurrentPlayerWeapon.WeaponName)
         {
             weaponBuyText.text = "»—ѕќЋ№«”≈“—я";
@@ -101,7 +123,7 @@ public class ShipCanvasScript : MonoBehaviour
         }
         else
         {
-            weaponBuyText.text = " ”ѕ»“№";
+            weaponBuyText.text = " ”ѕ»“№[100]";
         }
     }
 

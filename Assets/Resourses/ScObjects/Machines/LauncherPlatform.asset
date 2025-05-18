@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LauncherPlatform
   m_EditorClassIdentifier: 
   machineName: 019
-  sprite: {fileID: 21300000, guid: 5d4fecbf6ed08b148bb35e459fbc631d, type: 3}
+  sprite: {fileID: -5084160569813655452, guid: ecc45ef3fa2ab2d4db7613c5a02dadcc, type: 3}
   hitPoints: 100
   hitPointsRecoverSpeed: 10
   maxStamina: 100

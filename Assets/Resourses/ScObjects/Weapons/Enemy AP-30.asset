@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Enemy AP-30
   texture: {fileID: -6872228879038628932, guid: ed7022a6d6461f741b2ef488a51f99e9, type: 3}
-  weaponScatter: 2
-  damage: 30
-  fireRate: 0.07
+  weaponScatter: 0.1
+  damage: 50
+  fireRate: 1
   magSize: 1
-  reloadTime: 0.5
-  projectile: {fileID: 11400000, guid: 95c06b75c00825945b156acb48d2fd9a, type: 2}
-  offset: 1.55
+  reloadTime: 2
+  projectile: {fileID: 11400000, guid: 82160f9aad526174286997d6554e21ef, type: 2}
+  offset: 1
