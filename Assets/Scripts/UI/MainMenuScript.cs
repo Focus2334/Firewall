@@ -37,20 +37,17 @@ namespace UI
 
         private void Start()
         {
-            if (!CurrentValues.Initialized) 
-                if (SaveScObject.TryLoadSave(out var playerSaveData))
-                    CurrentValues.Initialize(playerSaveData);
-                else
-                    CurrentValues.Initialize(new PlayerSaveData
-                    {
-                        PlayerMoney = 0,
-                        AllAvailableMachines = playerMachines,
-                        CurrentPlayerMachine = playerMachines[0],
-                        OpenedMachines = new List<MachineScObject> { playerMachines[0] },
-                        OpenedWeapons = new List<WeaponScObject> { playerWeapons[0] },
-                        AllAvailableWeapons = playerWeapons,
-                        CurrentPlayerWeapon = playerWeapons[0]
-                    });
+            if (!CurrentValues.Initialized)
+                CurrentValues.Initialize(new PlayerSaveData
+                {
+                    PlayerMoney = 0,
+                    AllAvailableMachines = playerMachines,
+                    CurrentPlayerMachine = playerMachines[0],
+                    OpenedMachines = new List<MachineScObject> { playerMachines[0] },
+                    OpenedWeapons = new List<WeaponScObject> { playerWeapons[0] },
+                    AllAvailableWeapons = playerWeapons,
+                    CurrentPlayerWeapon = playerWeapons[0]
+                });
         }
     }
 }
