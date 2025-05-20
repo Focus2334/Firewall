@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8ac226730078e9419a08a36c17b49f2, type: 3}
-  m_Name: Fourth
+  m_Name: bosswave
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: c11cc7183ca69924da05f415a1c02501, type: 2}
+  - {fileID: 11400000, guid: bbd395b5d8315a640932b686b7620ee4, type: 2}

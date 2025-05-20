@@ -9,6 +9,7 @@ namespace EnemySpawner
     public class EnemySpawnerScript : MonoBehaviour
     {
         [SerializeField] private EnemyWaveScript wave;
+        [SerializeField] private EnemyWaveScript bossWave;
         [SerializeField] private List<Vector3> positions;
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private PlayerScript player;
@@ -43,6 +44,11 @@ namespace EnemySpawner
             {
                 var enemyId = Random.Range(0, wave.Enemies.Count);
                 newWave.Add(wave.Enemies[enemyId]);
+            }
+
+            if (currentWave % 5 == 0)
+            {
+                newWave.Add(bossWave.Enemies[0]);
             }
             
             foreach (var enemyScObject in newWave)

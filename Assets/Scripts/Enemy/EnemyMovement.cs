@@ -142,7 +142,7 @@ namespace Enemy
 
         protected internal void MoveUpdate()
         {
-            if (IsOnFire && enemy.OnPreFire)
+            if (IsOnFire && enemy.EnemySc.ShootWithAdvance)
                 RotateEnemyForPreFire();
             else 
                 RotateEnemy();

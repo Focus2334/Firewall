@@ -12,6 +12,7 @@ namespace ScObjects
         [SerializeField] private float strafeTime;
         [SerializeField] private float moveBackDistance;
         [SerializeField] private float moveForwardDistance;
+        [SerializeField] private bool shootWithAdvance;
 
         public string EnemyName => enemyName;
         
@@ -26,5 +27,7 @@ namespace ScObjects
         public float MoveBackDistance => moveBackDistance;
         
         public float MoveForwardDistance => moveForwardDistance;
+
+        public bool ShootWithAdvance => shootWithAdvance;
     }
 }
