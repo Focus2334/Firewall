@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d5f8e54c7622a479baa62050a0423c, type: 3}
+  m_Name: "\u0421\u041A\u041C \u0422\u041E\u041F\u041E\u041B\u042C"
+  m_EditorClassIdentifier: 
+  machineName: "\u0421\u041A\"\u0422\u041E\u041F\u041E\u041B\u042C\""
+  sprite: {fileID: -7624520064915638997, guid: fd59a83d2c6441842ba4667f5a416173, type: 3}
+  hitPoints: 80
+  hitPointsRecoverSpeed: 10
+  maxStamina: 140
+  staminaRecoverSpeed: 40
+  dashStaminaNeed: 40
+  maxSpeed: 12
+  acceleration: 1.1
+  maxDashSpeed: 24
+  dashAccel: 2
+  dashTime: 0.2

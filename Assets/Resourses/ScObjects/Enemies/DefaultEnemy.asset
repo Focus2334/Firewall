@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultEnemy
   m_EditorClassIdentifier: 
   enemyName: Default
-  machine: {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
+  machine: {fileID: 11400000, guid: 617a34a37c09284449d1a1196a243c47, type: 2}
   weapon: {fileID: 11400000, guid: 2c30f88e4dacdac47bcf97e104b71b1a, type: 2}
   strafeSpeed: 7
   strafeTime: 2

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fea0b5640e9ad544a1c5c058ceb9649, type: 3}
-  m_Name: Machinegun
+  m_Name: "\u041F-120"
   m_EditorClassIdentifier: 
-  weaponName: Machinegun
-  texture: {fileID: 8033406389381014889, guid: cbb7fd6fae11ab24c8a6fbd2ae09077a, type: 3}
-  weaponScatter: 5
-  damage: 5
-  fireRate: 0.05
-  magSize: 10
-  reloadTime: 5
-  projectile: {fileID: 11400000, guid: 134c07ec7028fc24d85a9a13238bd89f, type: 2}
-  offset: 1.6
+  weaponName: "\u041F-120"
+  texture: {fileID: -6872228879038628932, guid: ed7022a6d6461f741b2ef488a51f99e9, type: 3}
+  weaponScatter: 2
+  damage: 120
+  fireRate: 0.07
+  magSize: 1
+  reloadTime: 0.5
+  projectile: {fileID: 11400000, guid: efe14d81031f91245866ceeef3eecdc1, type: 2}
+  offset: 1.55

@@ -851,14 +851,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipCanvasScript: {fileID: 1999449062}
   playerMachines:
+  - {fileID: 11400000, guid: 617a34a37c09284449d1a1196a243c47, type: 2}
   - {fileID: 11400000, guid: 534a6f57dec0a4649b48aacbe1d96cad, type: 2}
-  - {fileID: 11400000, guid: 407b941ce7760b24b842f69c5d222bb7, type: 2}
-  - {fileID: 11400000, guid: a7802ea17fd1ec843b5e94fca4dea58b, type: 2}
-  - {fileID: 11400000, guid: 6b2b4f12798f4a84890d0aa9a11c0c8a, type: 2}
+  - {fileID: 11400000, guid: f54caacb50065f24c9160829200fb97c, type: 2}
+  - {fileID: 11400000, guid: 043ebea9c59827b4487a89512b202125, type: 2}
+  - {fileID: 11400000, guid: f60e44e15225192418a0690553b18abb, type: 2}
   playerWeapons:
   - {fileID: 11400000, guid: e61aef69ef2b4804aafd08fce956e50e, type: 2}
   - {fileID: 11400000, guid: e0f6742e5aa4a614a9c405bc54d38493, type: 2}
-  - {fileID: 11400000, guid: c3073e01756198245b1357d3ef679126, type: 2}
+  - {fileID: 11400000, guid: 429c3290846434441a6b585b27e0d9cd, type: 2}
+  - {fileID: 11400000, guid: 087333db1a77257469956c74abdf3fa2, type: 2}
+  - {fileID: 11400000, guid: 57d0f7168a618eb4ebf4a76b84ef8207, type: 2}
 --- !u!1 &131129457
 GameObject:
   m_ObjectHideFlags: 0
