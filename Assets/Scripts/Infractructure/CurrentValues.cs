@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public static class CurrentValues
 {
     public static bool Initialized { get; private set; }
+    
+    public static bool FunnySettings { get; set; }
 
     public static int Points { get; private set; }
 

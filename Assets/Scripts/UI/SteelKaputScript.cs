@@ -13,7 +13,7 @@ public class SteelKaputScript : MonoBehaviour
     [SerializeField] private float screen_timer;
 
 
-    void Update()
+    private void Update()
     {
         if (text_timer > 0)
             text_timer -= Time.deltaTime;

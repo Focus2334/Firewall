@@ -11,7 +11,13 @@ namespace UI
         [SerializeField] private List<MachineScObject> playerMachines;
         [SerializeField] private List<WeaponScObject> playerWeapons;
 
-        public void Play() => SceneManager.LoadScene("Steel kaput");
+        public void Play()
+        {
+            if (CurrentValues.FunnySettings)
+                SceneManager.LoadScene("Steel kaput");
+            else
+                SceneManager.LoadScene("Narrative screen");
+        }
 
         public void Exit()
         {
