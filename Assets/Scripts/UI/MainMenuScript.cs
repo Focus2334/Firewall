@@ -11,7 +11,7 @@ namespace UI
         [SerializeField] private List<MachineScObject> playerMachines;
         [SerializeField] private List<WeaponScObject> playerWeapons;
 
-        public void Play() => SceneManager.LoadScene("Game scene");
+        public void Play() => SceneManager.LoadScene("Steel kaput");
 
         public void Exit()
         {
