@@ -19,6 +19,11 @@ namespace UI
                 SceneManager.LoadScene("Narrative screen");
         }
 
+        public void FnnyChange()
+        {
+            CurrentValues.FunnySettings = !CurrentValues.FunnySettings;
+        }
+
         public void Exit()
         {
             var saveData = new PlayerSaveData
@@ -43,6 +48,7 @@ namespace UI
 
         private void Start()
         {
+            CurrentValues.FunnySettings = false;
             if (!CurrentValues.Initialized)
                 CurrentValues.Initialize(new PlayerSaveData
                 {
