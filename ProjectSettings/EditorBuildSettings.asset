@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Steel kaput.unity
     guid: 2ee25fc67168ae343ab54bd85e0e290c
+  - enabled: 1
+    path: Assets/Scenes/Narrative screen.unity
+    guid: f85206bd5f8166142b98109a152803f7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
