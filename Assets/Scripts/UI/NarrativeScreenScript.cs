@@ -18,6 +18,7 @@ public class NarrativeScreenScript : MonoBehaviour
     [SerializeField] private GameObject text7;
     [SerializeField] private GameObject text8;
     [SerializeField] private float text_timer;
+    [SerializeField] private float text_timer_delay;
 
     private List<GameObject> texts;
     private int currentText;
@@ -33,7 +34,7 @@ public class NarrativeScreenScript : MonoBehaviour
             text_timer -= Time.deltaTime;
         if (text_timer <= 0)
         {
-            text_timer = 3f;
+            text_timer = text_timer_delay;
             texts[currentText].SetActive(true);
             currentText++;
         }
