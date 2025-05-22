@@ -9,6 +9,7 @@ namespace EnemySpawner
     public class EnemySpawnerScript : MonoBehaviour
     {
         [SerializeField] private EnemyWaveScript wave;
+        [SerializeField] private EnemyWaveScript fwave;
         [SerializeField] private EnemyWaveScript bossWave;
         [SerializeField] private List<Vector3> positions;
         [SerializeField] private GameObject enemyPrefab;
@@ -19,7 +20,16 @@ namespace EnemySpawner
         private int currentWave;
         private double waveTimer;
 
-        private void Start() => CurrentValues.ClearEnemies();
+        private void Start()
+        {
+            CurrentValues.ClearEnemies();
+            if (CurrentValues.FunnySettings)
+            {
+                wave = fwave;
+            }
+        }
+            
+            
 
         private void StartWaveTimer() => waveTimer = waveDelayTime;
 

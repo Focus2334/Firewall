@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fea0b5640e9ad544a1c5c058ceb9649, type: 3}
+  m_Name: Enemy RocketLauncher 1
+  m_EditorClassIdentifier: 
+  weaponName: Launcher
+  texture: {fileID: 0}
+  weaponScatter: 0
+  damage: 1000
+  fireRate: 0.5
+  magSize: 5
+  reloadTime: 2
+  projectile: {fileID: 11400000, guid: 417815fe8ac73c74b807e478cd496e6c, type: 2}
+  offset: 0.1

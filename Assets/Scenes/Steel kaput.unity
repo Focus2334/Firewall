@@ -367,6 +367,8 @@ MonoBehaviour:
   text: {fileID: 896898374}
   text_timer: 2.3
   screen_timer: 50
+  kaput: {fileID: 11400000, guid: c11a590036992354382de1d637375bc9, type: 2}
+  kaputweapon: {fileID: 11400000, guid: 368d6a4b92866f14e885b2afa1a117db, type: 2}
 --- !u!1 &292055681
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,14 +420,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8755955529970065515, guid: efa6a6331ded6f14d9d71eeeee992264, type: 3}
+  m_Sprite: {fileID: 305473140649263116, guid: bacf0bc597806b04d834fdbf02a224d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -819,7 +821,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896898374}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1143775570
 GameObject:
   m_ObjectHideFlags: 0

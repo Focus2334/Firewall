@@ -49,6 +49,7 @@ namespace UI
         private void Start()
         {
             CurrentValues.FunnySettings = false;
+            
             if (!CurrentValues.Initialized)
                 CurrentValues.Initialize(new PlayerSaveData
                 {
@@ -60,6 +61,11 @@ namespace UI
                     AllAvailableWeapons = playerWeapons,
                     CurrentPlayerWeapon = playerWeapons[0]
                 });
+            if (CurrentValues.CurrentPlayerMachine.MachineName == "Steel kaput")
+            {
+                CurrentValues.SetCurrentPlayerMachine(playerMachines[0]);
+                CurrentValues.SetCurrentPlayerWeapon(playerWeapons[0]);
+            }
         }
     }
 }
