@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mittelafrika_0: 305473140649263116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

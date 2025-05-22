@@ -19,4 +19,4 @@ MonoBehaviour:
   strafeTime: 1
   moveBackDistance: 8
   moveForwardDistance: 10
-  shootWithAdvance: 1
+  shootWithAdvance: 0
