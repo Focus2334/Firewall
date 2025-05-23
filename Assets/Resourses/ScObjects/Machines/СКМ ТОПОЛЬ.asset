@@ -19,7 +19,7 @@ MonoBehaviour:
   maxStamina: 140
   staminaRecoverSpeed: 40
   dashStaminaNeed: 40
-  maxSpeed: 12
+  maxSpeed: 14
   acceleration: 1.1
   maxDashSpeed: 24
   dashAccel: 2

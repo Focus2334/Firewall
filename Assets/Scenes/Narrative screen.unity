@@ -525,7 +525,7 @@ MonoBehaviour:
   text7: {fileID: 451318647}
   text8: {fileID: 927557063}
   text_timer: 1
-  text_timer_delay: 2
+  text_timer_delay: 2.5
 --- !u!1 &292055681
 GameObject:
   m_ObjectHideFlags: 0
