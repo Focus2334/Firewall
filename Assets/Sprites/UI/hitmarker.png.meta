@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 03dfb3e017cbf7f40a3d4eff3c6033f0
+guid: 71aabd01cddcbef4780cc7ba56c5a260
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6554736390298987251
-    second: cursor_0
+      213: -3456819443802960952
+    second: hitmarker_0
   - first:
-      213: -577436947000661451
-    second: cursor_1
+      213: 407602523924423663
+    second: hitmarker_1
   - first:
-      213: 8344927208098896504
-    second: cursor_2
+      213: 8033355300261946478
+    second: hitmarker_2
   - first:
-      213: -6306539692163049295
-    second: cursor_3
+      213: -59832016119859231
+    second: hitmarker_3
+  - first:
+      213: 5481055597080659068
+    second: hitmarker_4
+  - first:
+      213: 8782544152394968
+    second: hitmarker_5
+  - first:
+      213: 4288938649092822944
+    second: hitmarker_6
+  - first:
+      213: -2562565415226280138
+    second: hitmarker_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +121,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cursor_0
+      name: hitmarker_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb0677e709e600d0800000000000000
+      internalID: -3456819443802960952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitmarker_1
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fae81cb40a17fa50800000000000000
-      internalID: 6554736390298987251
+      spriteID: fe36110065818a500800000000000000
+      internalID: 407602523924423663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cursor_1
+      name: hitmarker_2
       rect:
         serializedVersion: 2
         x: 9
@@ -146,14 +180,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53ae6d5f7288cf7f0800000000000000
-      internalID: -577436947000661451
+      spriteID: e646d9245163c7f60800000000000000
+      internalID: 8033355300261946478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cursor_2
+      name: hitmarker_3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 14
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7fafc291f6b2ff0800000000000000
+      internalID: -59832016119859231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitmarker_4
       rect:
         serializedVersion: 2
         x: 14
@@ -168,14 +224,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87a1a3b15132fc370800000000000000
-      internalID: 8344927208098896504
+      spriteID: c74c822960f901c40800000000000000
+      internalID: 5481055597080659068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cursor_3
+      name: hitmarker_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dc7d686da33f1000800000000000000
+      internalID: 8782544152394968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitmarker_6
       rect:
         serializedVersion: 2
         x: 9
@@ -190,8 +268,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b858be309baa78a0800000000000000
-      internalID: -6306539692163049295
+      spriteID: 0a71f924afe558b30800000000000000
+      internalID: 4288938649092822944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hitmarker_7
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6377cb7f450ff6cd0800000000000000
+      internalID: -2562565415226280138
       vertices: []
       indices: 
       edges: []

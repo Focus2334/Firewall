@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Weapon;
 using ScObjects;
+using UI;
 
 namespace Enemy
 {
@@ -53,6 +54,7 @@ namespace Enemy
 
         public bool TakeDamage(float value)
         {
+            Hitmarker.ChangeCursor();
             currentHp -= value;
             if (currentHp <= 0) 
                 Death();
