@@ -21,6 +21,6 @@ MonoBehaviour:
   dashStaminaNeed: 30
   maxSpeed: 14
   acceleration: 1
-  maxDashSpeed: 20
+  maxDashSpeed: 60
   dashAccel: 4
   dashTime: 0.08

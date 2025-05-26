@@ -17,5 +17,6 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 686d7015d33f8fa47a85401d7ea94369, type: 2}
   strafeSpeed: 3
   strafeTime: 2
-  moveBackDistance: 2
-  moveForwardDistance: 6
+  moveBackDistance: 8
+  moveForwardDistance: 12
+  shootWithAdvance: 1

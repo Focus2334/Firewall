@@ -17,7 +17,7 @@ namespace EnemySpawner
         [SerializeField] private double waveDelayTime;
         [SerializeField] private int waveEnemyCountShift;
 
-        private int currentWave;
+        private int currentWave = 1;
         private double waveTimer;
 
         private void Start()
@@ -47,7 +47,7 @@ namespace EnemySpawner
 
         private void SpawnWave()
         {
-            var enemySpawnCount = Random.Range(4 + currentWave / waveEnemyCountShift, 8 + currentWave / waveEnemyCountShift);
+            var enemySpawnCount = Random.Range(2 + currentWave / waveEnemyCountShift, 4 + currentWave / waveEnemyCountShift);
             var newWave = new List<EnemyScObject>();
             var positionCounter = 0;
             for (int i = 0; i < enemySpawnCount; i++)
