@@ -114,6 +114,9 @@ MonoBehaviour:
   agent: {fileID: 2737852248448342050}
   target: {fileID: 0}
   points: {fileID: 4212827229855067478, guid: 6a72aae8b86cffe4080f0613e0447b95, type: 3}
+  onPreFire: 0
+  hitEffect: {fileID: 7050761290645672518, guid: 372e7376fd2313343b189d254a8e59aa, type: 3}
+  elimEffect: {fileID: 5523186998469255036, guid: c13b26748fddd224ebaf5a83752e02a7, type: 3}
 --- !u!50 &5422560378150535940
 Rigidbody2D:
   serializedVersion: 5

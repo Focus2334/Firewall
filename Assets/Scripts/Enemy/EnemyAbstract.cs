@@ -17,6 +17,8 @@ namespace Enemy
         [SerializeField] private PlayerScript target;
         [SerializeField] private GameObject points;
         [SerializeField] private bool onPreFire;
+        [SerializeField] private GameObject hitEffect;
+        [SerializeField] private GameObject elimEffect;
         
         private float currentHp;
         
@@ -54,6 +56,7 @@ namespace Enemy
         public bool TakeDamage(float value)
         {
             currentHp -= value;
+            Instantiate(hitEffect, transform.position, new Quaternion());
             if (currentHp <= 0) 
                 Death();
             return true;
@@ -63,6 +66,7 @@ namespace Enemy
         {
             CurrentValues.DecrementEnemies();
             Instantiate(points, transform.position, transform.rotation);
+            Instantiate(elimEffect, transform.position, new Quaternion());
             Destroy(gameObject);
             return true;
         }
