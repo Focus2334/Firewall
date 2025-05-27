@@ -34,7 +34,7 @@ TextureImporter:
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
-    borderMipMap: 0
+    borderMipMap: 1
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
@@ -124,10 +124,10 @@ TextureImporter:
       name: hitmarker_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 14
-        width: 10
-        height: 10
+        x: 3
+        y: 13
+        width: 11
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: hitmarker_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 9
+        x: 4
+        y: 18
         width: 10
-        height: 6
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: hitmarker_2
       rect:
         serializedVersion: 2
-        x: 9
-        y: 14
+        x: 13
+        y: 18
         width: 6
-        height: 10
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       name: hitmarker_3
       rect:
         serializedVersion: 2
-        x: 14
-        y: 14
+        x: 18
+        y: 18
         width: 10
         height: 10
       alignment: 0
@@ -212,9 +212,9 @@ TextureImporter:
       name: hitmarker_4
       rect:
         serializedVersion: 2
-        x: 14
-        y: 9
-        width: 10
+        x: 18
+        y: 13
+        width: 11
         height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -234,8 +234,8 @@ TextureImporter:
       name: hitmarker_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 4
+        y: 4
         width: 10
         height: 10
       alignment: 0
@@ -256,10 +256,10 @@ TextureImporter:
       name: hitmarker_6
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
+        x: 13
+        y: 3
         width: 6
-        height: 10
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +278,8 @@ TextureImporter:
       name: hitmarker_7
       rect:
         serializedVersion: 2
-        x: 14
-        y: 0
+        x: 18
+        y: 4
         width: 10
         height: 10
       alignment: 0
