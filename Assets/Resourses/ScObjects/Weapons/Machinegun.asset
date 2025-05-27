@@ -19,5 +19,5 @@ MonoBehaviour:
   fireRate: 0.05
   magSize: 10
   reloadTime: 5
-  projectile: {fileID: 11400000, guid: 134c07ec7028fc24d85a9a13238bd89f, type: 2}
+  projectile: {fileID: 11400000, guid: 95c06b75c00825945b156acb48d2fd9a, type: 2}
   offset: 1.6

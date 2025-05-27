@@ -10,6 +10,7 @@ namespace UI
         [SerializeField] private ShipCanvasScript shipCanvasScript;
         [SerializeField] private List<MachineScObject> playerMachines;
         [SerializeField] private List<WeaponScObject> playerWeapons;
+        [SerializeField] private GameObject guide;
 
         public void Play()
         {
@@ -22,6 +23,11 @@ namespace UI
         public void FnnyChange()
         {
             CurrentValues.FunnySettings = !CurrentValues.FunnySettings;
+        }
+
+        public void TurnOnGuide()
+        {
+            guide.SetActive(!guide.activeSelf);
         }
 
         public void Exit()

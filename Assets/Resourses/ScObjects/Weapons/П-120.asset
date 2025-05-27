@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: "\u041F-120"
   texture: {fileID: -6872228879038628932, guid: ed7022a6d6461f741b2ef488a51f99e9, type: 3}
   weaponScatter: 2
-  damage: 120
+  damage: 200
   fireRate: 0.07
   magSize: 1
   reloadTime: 0.5

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   machineName: Sniper
   sprite: {fileID: -1622524721689181744, guid: 7a44eb295c3caeb4eacf19f50e0f18c2, type: 3}
-  hitPoints: 50
+  hitPoints: 80
   hitPointsRecoverSpeed: 5
   maxStamina: 50
   staminaRecoverSpeed: 20

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Player
 {
@@ -6,11 +7,18 @@ namespace Player
     {
         private GameObject player;
         private Rigidbody2D rb;
+        [SerializeField] private AudioResource kaput;
 
         private void Start()
         {
             player = GameObject.Find("Player");
             rb = GetComponent<Rigidbody2D>();
+            var audio = GetComponent<AudioSource>();
+            if (CurrentValues.FunnySettings)
+            {
+                audio.resource = kaput;
+                audio.Play();
+            }
         }
 
         private void Update() =>
