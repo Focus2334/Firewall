@@ -27,7 +27,6 @@ namespace UI
             changeCursor = false;
             isCursorSetBack = false;
             timer = timeForHitmarker;
-            print("Hitmarker");
             Cursor.SetCursor(hitmarkerImage, Vector2.zero, CursorMode.Auto);
         }
 

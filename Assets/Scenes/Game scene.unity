@@ -5869,6 +5869,53 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &495335345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495335347}
+  - component: {fileID: 495335346}
+  m_Layer: 0
+  m_Name: Hitmarker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &495335346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495335345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d169c49fc4431daafe066989f59942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeForHitmarker: 0.1
+  cursorImage: {fileID: 2800000, guid: 03dfb3e017cbf7f40a3d4eff3c6033f0, type: 3}
+  hitmarkerImage: {fileID: 2800000, guid: 71aabd01cddcbef4780cc7ba56c5a260, type: 3}
+--- !u!4 &495335347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495335345}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.88546, y: -5.4346247, z: -0.016964018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -17948,7 +17995,7 @@ MonoBehaviour:
     rid: 8671076638700863557
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1229230955}
+    m_Mesh: {fileID: 1232598031}
     m_LocalBounds:
       m_Center: {x: 1.4999847, y: -2, z: 0}
       m_Extent: {x: 16.499985, y: 14, z: 0}
@@ -18218,7 +18265,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!43 &1229230955
+--- !u!43 &1232598031
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19953,3 +20000,4 @@ SceneRoots:
   - {fileID: 74858871}
   - {fileID: 1807856085}
   - {fileID: 5379553639033350691}
+  - {fileID: 495335347}
