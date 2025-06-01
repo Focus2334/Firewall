@@ -11,6 +11,8 @@ public static class CurrentValues
 
     public static int Points { get; private set; }
 
+    public static int MaxWave { get; set; }
+
     public static MachineScObject CurrentPlayerMachine { get; private set; }
 
     public static List<MachineScObject> OpenedMachines { get; private set; }

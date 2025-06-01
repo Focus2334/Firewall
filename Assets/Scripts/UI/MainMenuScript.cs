@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 namespace UI
 {
@@ -12,6 +13,7 @@ namespace UI
         [SerializeField] private List<MachineScObject> playerMachines;
         [SerializeField] private List<WeaponScObject> playerWeapons;
         [SerializeField] private GameObject guide;
+        [SerializeField] private TMP_Text score;
 
         public void Play()
         {
@@ -60,6 +62,8 @@ namespace UI
 
         private void Start()
         {
+            if (CurrentValues.MaxWave > 0)
+                score.text = $"Лучший результат: {CurrentValues.MaxWave} волн(а)";
             CurrentValues.FunnySettings = false;
             CurrentValues.EasyMode = false;
             if (!CurrentValues.Initialized)

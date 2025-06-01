@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Enemy;
 using Player;
@@ -35,8 +36,12 @@ namespace EnemySpawner
 
         private void Update()
         {
-            if (CurrentValues.EnemyCount == 0 && waveTimer <= 0) 
+            if (CurrentValues.EnemyCount <= 0 && waveTimer <= 0)
+            {
+                CurrentValues.ClearEnemies();
                 StartWaveTimer();
+            }
+                
             if (waveTimer > 0)
             {
                 waveTimer -= Time.deltaTime;
@@ -47,12 +52,13 @@ namespace EnemySpawner
 
         private void SpawnWave()
         {
-            var enemySpawnCount = Random.Range(2 + currentWave / waveEnemyCountShift, 4 + currentWave / waveEnemyCountShift);
+            CurrentValues.MaxWave = Math.Max(currentWave, CurrentValues.MaxWave);
+            var enemySpawnCount = UnityEngine.Random.Range(2 + currentWave / waveEnemyCountShift, 4 + currentWave / waveEnemyCountShift);
             var newWave = new List<EnemyScObject>();
             var positionCounter = 0;
             for (int i = 0; i < enemySpawnCount; i++)
             {
-                var enemyId = Random.Range(0, wave.Enemies.Count);
+                var enemyId = UnityEngine.Random.Range(0, wave.Enemies.Count);
                 newWave.Add(wave.Enemies[enemyId]);
             }
 
