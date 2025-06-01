@@ -35,12 +35,10 @@ namespace Player
         {
             if (CurrentValues.EasyMode)
             {
-                print(1);
                 currentHp -= value * 0.5f;
             }
             else
             {
-                print(2);
                 currentHp -= value;
             }
             
