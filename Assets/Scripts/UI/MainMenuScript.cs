@@ -40,17 +40,6 @@ namespace UI
 
         public void Exit()
         {
-            var saveData = new PlayerSaveData
-            {
-                AllAvailableMachines = CurrentValues.AllAvailableMachines,
-                CurrentPlayerMachine = CurrentValues.CurrentPlayerMachine,
-                OpenedMachines = CurrentValues.OpenedMachines,
-                PlayerMoney = CurrentValues.Points,
-                AllAvailableWeapons = CurrentValues.AllAvailableWeapons,
-                CurrentPlayerWeapon = CurrentValues.CurrentPlayerWeapon,
-                OpenedWeapons = CurrentValues.OpenedWeapons,
-            };
-            SaveScObject.SavePreservation(saveData);
             Application.Quit();
         }
 
