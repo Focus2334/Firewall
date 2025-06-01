@@ -33,7 +33,17 @@ namespace Player
 
         public bool TakeDamage(float value)
         {
-            currentHp -= value;
+            if (CurrentValues.EasyMode)
+            {
+                print(1);
+                currentHp -= value * 0.5f;
+            }
+            else
+            {
+                print(2);
+                currentHp -= value;
+            }
+            
             hpBar.SetBarProgress(currentHp / machineSc.HitPoints);
             hpBar.SetText(math.round(currentHp).ToString());
             if (currentHp <= 0)

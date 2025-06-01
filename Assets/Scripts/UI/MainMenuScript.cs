@@ -2,6 +2,7 @@ using ScObjects;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -23,6 +24,11 @@ namespace UI
         public void FnnyChange()
         {
             CurrentValues.FunnySettings = !CurrentValues.FunnySettings;
+        }
+
+        public void EasyChange()
+        {
+            CurrentValues.EasyMode = !CurrentValues.EasyMode;
         }
 
         public void TurnOnGuide()
@@ -55,7 +61,7 @@ namespace UI
         private void Start()
         {
             CurrentValues.FunnySettings = false;
-            
+            CurrentValues.EasyMode = false;
             if (!CurrentValues.Initialized)
                 CurrentValues.Initialize(new PlayerSaveData
                 {

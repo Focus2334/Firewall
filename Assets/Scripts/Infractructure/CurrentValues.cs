@@ -7,6 +7,8 @@ public static class CurrentValues
     
     public static bool FunnySettings { get; set; }
 
+    public static bool EasyMode { get; set; }
+
     public static int Points { get; private set; }
 
     public static MachineScObject CurrentPlayerMachine { get; private set; }
